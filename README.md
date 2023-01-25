@@ -1,5 +1,5 @@
 # gamesellMVC
 playpoint source code
 Username:adminuser
-Login:adminuser@playpoint.com
-Parol:Qaz!123
+Email:adminuser@playpoint.com
+Password:Qaz!123
