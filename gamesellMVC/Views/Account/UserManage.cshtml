@@ -1,0 +1,94 @@
+﻿@model UserManage
+
+@section Css
+{
+    <title>User Manage</title>
+}
+
+<style>
+    span {
+        color: #a51c1c;
+    }
+</style>
+
+<form asp-controller="Account" asp-action="UserManage" method="post" enctype="multipart/form-data">
+    @*<input type="hidden" asp-for="UserId" value="@Model.UserId" />*@
+    <div class="edit-profile-images-section">
+        <div class="epis-logo-info">
+            <div onclick="propicchange()" class="epis-logo">
+                <img accept="image/*" id="epis_output" src="/static/img/users/@Model.profile_pic" alt="">
+                <input type="hidden" asp-for="profile_pic" />
+                <input id="profile_image" type="file" name="file1" onchange="loadfile(event)">
+            </div>
+        </div>
+        <div class="epis-text-info">
+            <h4 class="epis-name">@Model.FirstName @Model.LastName</h4>
+            <h5 class="epis-username">@Model.NickName</h5>
+        </div>
+    </div>
+
+    <div class="edit-profile-banner-section">
+
+    </div>
+
+    <div class="edit-profile-content-section">
+        <div class="epcs-item">
+            <label asp-for="NickName" class="epcs-item-label">@localizer["nickname"]</label>
+            <input type="text" asp-for="NickName" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["nickdown"]</p>
+            <span asp-validation-for="NickName"></span>
+        </div>
+        <div class="epcs-item">
+            <label asp-for="Email" class="epcs-item-label">@localizer["email"]</label>
+            <input type="email" asp-for="Email" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["emaildown"]</p>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class="epcs-item">
+            <label asp-for="FirstName" class="epcs-item-label">@localizer["name"]</label>
+            <input type="text" asp-for="FirstName" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["namedown"]</p>
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div class="epcs-item">
+            <label asp-for="LastName" class="epcs-item-label">@localizer["surname"]</label>
+            <input type="text" asp-for="LastName" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["surnamedown"]</p>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div class="epcs-item">
+            <label asp-for="MobileNumber" class="epcs-item-label">@localizer["number"]</label>
+            <input type="text" asp-for="MobileNumber" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["numberdown"]</p>
+            <span asp-validation-for="MobileNumber"></span>
+        </div>
+        <div class="epcs-item">
+            <label asp-for="Dob" class="epcs-item-label">@localizer["dob"]</label>
+            <input type="date" asp-for="Dob" class="pp_input epcs-item-input">
+            <p class="epcs-item-info">@localizer["dobdown"]</p>
+            <span asp-validation-for="Dob"></span>
+        </div>
+        <div class="epcs-button-content">
+            <button class="pp_button epcs-item-button">@localizer["save"]</button>
+        </div>
+    </div>
+</form>
+<div class="edit-profile-content-section">
+    <div class="epcs-button-content">
+        <form asp-controller="Account" asp-action="ChangePassword" method="post">
+            <button class="pp_button epcs-item-button">@localizer["password"]</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.js"></script>
+
+    <script src="/static/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/static/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/static/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

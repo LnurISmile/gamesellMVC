@@ -1,0 +1,265 @@
+﻿@model ProductDetailModel
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+
+@section Css
+{
+    <title>@Model.Products.Name</title>
+    <meta name="description" content="@Model.Products.Text">
+    <meta name="keywords" content="@Model.Products.Key">
+    <meta name="author" content="@Model.Products.Company_name">
+}
+
+<div id="post-in-tab" class="post-in-tab">
+    <div class="post-in-breadcrumb">
+        <a asp-controller="Home" asp-action="Index"><i class="fas fa-angle-left"></i> @localizer["back"]</a>
+        <p>@Model.Products.Name</p>
+    </div>
+    <div class="post-in-content">
+        <div class="image-content">
+            <img id="post-in" class="post-in-big-img" src="/static/img/product/big@(Model.Products.Main_img)" alt="">
+        </div>
+        <div class="image-title-content">
+            <h4 class="post-in-title">@Model.Products.Name</h4>
+            @if (Model.Products.Instock)
+            {
+                <span class="post-in-aviable">@localizer["ins"]</span>
+            }
+            else
+            {
+                <span class="post-in-aviable not-stock-in">@localizer["nots"]</span>
+            }
+
+            <div class="post-in-price-content">
+                @if (Model.Products.Price == 0)
+                {
+
+                }
+                else
+                {
+                    @if (Model.Products.Discount_percent == 0)
+                    {
+                        <p class="post-price-sale">
+                            @if (User.Identity.IsAuthenticated == false)
+                            {
+                                double a = 0;
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                    {
+                                        @(a = Math.Round(Model.Products.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                double a = 0;
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.Id == Model.Cur)
+                                    {
+                                        @(a = Math.Round(Model.Products.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            }
+                        </p>
+                    }
+                    else if (Model.Products.Discount_percent > 0)
+                    {
+                        if (User.Identity.IsAuthenticated == false)
+                        {
+                            double a = Model.Products.ConstNumber = Model.Products.Price - (Model.Products.Price * Model.Products.Discount_percent) / 100;
+                            double b = 0;
+                            <p class="post-price-sale">
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                    {
+                                        @(b = Math.Round(a * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            </p>
+                            <p class="post-price">
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                    {
+                                        @(b = Math.Round(Model.Products.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            </p>
+                            <p class="post-sale-percent">@Model.Products.Discount_percent %</p>
+                        }
+                        else
+                        {
+                            double a = Model.Products.ConstNumber = Model.Products.Price - (Model.Products.Price * Model.Products.Discount_percent) / 100;
+                            double b = 0;
+                            <p class="post-price-sale">
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.Id == Model.Cur)
+                                    {
+                                        @(b = Math.Round(a * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            </p>
+
+                            <p class="post-price">
+                                @foreach (var q in Model.Curs)
+                                {
+                                    if (q.Id == Model.Cur)
+                                    {
+                                        @(b = Math.Round(Model.Products.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                    }
+                                }
+                            </p>
+                            <p class="post-sale-percent">@Model.Products.Discount_percent %</p>
+                        }
+                    }
+                }
+            </div>
+
+            <div class="post-title-more-info">
+                <div class="post-title-more-info-item">
+                    <h6>@localizer["actizone"]</h6>
+                    @foreach (var a in Model.ACs)
+                    {
+                        if (Model.Products.Activation_countryID == a.Id)
+                        {
+                            <h5>@a.ActivationCountryName</h5>
+                            break;
+                        }
+                    }
+                </div>
+                <div class="post-title-more-info-item">
+                    <h6>@localizer["actiservice"]</h6>
+                    @foreach (var p in Model.Plats)
+                    {
+                        if (Model.Products.PlatformID == p.Id)
+                        {
+                            <h5>@p.PlatformName</h5>
+                        }
+                    }
+                </div>
+                <div class="post-title-more-info-item">
+                    <h6>@localizer["type"] </h6>
+                    @if (Model.Products.Type_active)
+                    {
+                        <h5>@localizer["profile"]</h5>
+                    }
+                    else
+                    {
+                        <h5>@localizer["key"]</h5>
+                    }
+                </div>
+            </div>
+
+            @if (Model.Products.UpComing)
+            {
+                <button class="post-game-but-button">@localizer["cannot"] </button>
+            }
+            else if (Model.have == true)
+            {
+                <button class="post-game-but-button">@localizer["owned"] </button>
+            }
+            else
+            {
+                <form asp-controller="Cart" asp-action="AddtoCartP" method="post">
+                    <input type="hidden" name="productId" value="@Model.Products.Id" />
+                    <button type="submit" class="post-game-but-button">@localizer["add"] </button>
+                </form>
+            }
+        </div>
+    </div>
+
+</div>
+<div class="post-in-game-info-section">
+
+    <div class="post-in-game-info-left">
+        <div class="post-in-info-tab">
+            <div>
+                <p>@localizer["devs"] </p>
+                @foreach (var d in Model.Devs)
+                {
+                    if (d.Id == Model.Products.DeveloperID)
+                    {
+                        <h6>@d.DeveloperName</h6>
+                        break;
+                    }
+                }
+            </div>
+            <div>
+                <p>@localizer["pubs"] </p>
+                @foreach (var p in Model.Pubs)
+                {
+                    if (p.Id == Model.Products.PublisherID)
+                    {
+                        <h6>@p.PublisherName</h6>
+                        break;
+                    }
+                }
+            </div>
+            <div>
+                <p>@localizer["date"] </p>
+                <h6>
+                    @Model.Products.ReleaseDate.ToString("dd/MM/yyyy")
+                </h6>
+            </div>
+            <div>
+                <p>@localizer["plat"] </p>
+                @foreach (var p in Model.Plats)
+                {
+                    if (p.Id == Model.Products.PlatformID)
+                    {
+                        <h6>@p.PlatformName</h6>
+                        break;
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="post-in-game-info-right">
+
+        <div class="slick-postin-slider ">
+            <div>
+                <iframe src="https://www.youtube.com/embed/@Model.Products.Slider_videolink" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div>
+                <img src="/static/img/product/@Model.Products.Slider_img1" alt="">
+            </div>
+            <div>
+                <img src="/static/img/product/@Model.Products.Slider_img2" alt="">
+            </div>
+            <div>
+                <img src="/static/img/product/@Model.Products.Slider_img3" alt="">
+            </div>
+        </div>
+        <div class="postin-slider-buttons">
+            <button class="postin-slider-button postin-slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="postin-slider-button postin-slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="post-in-info-text">
+            <p>
+                @Model.Products.Text
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/Vibrant.min.js"></script>
+}

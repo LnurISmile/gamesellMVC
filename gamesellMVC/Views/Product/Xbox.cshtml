@@ -1,0 +1,96 @@
+﻿@model XboxdataListViewModel
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+
+@section Css
+{
+    <title>Xbox game pass</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+}
+
+<div class="xbox-game-start">
+    <div class="xgs-content">
+        <div class="xgs-info-tab" id="xbox-start">
+            <h3>Xbox Game Pass</h3>
+            <p>
+                @localizer["title"]
+            </p>
+            <a href="/xbox/purchased">@localizer["join"]</a>
+            @foreach (var q in Model.Curs)
+            {
+                if (User.Identity.IsAuthenticated == false)
+                {
+                    double a = 0;
+                    @if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                    {
+                        <input id="currency-xbox-start" type="hidden" data-currency_name="@q.CurrencyName" data-curcalc="*" data-currency="@q.CurrencyStringConst" data-day_price="@Model.Xboxdata.SPrice">
+                        <p class="xgs-plan">
+                            @localizer["text1"]
+                            @(a = Math.Round(Model.Xboxdata.Price * q.CurrencyConst, 2)) @q.CurrencyName
+                            @localizer["text2"]
+                            <span>@(a = Math.Round(Model.Price * q.CurrencyConst, 2)) @q.CurrencyName</span> @localizer["text3"] @*<span class="current-lastday"></span>*@
+                        </p>
+                        break;
+                    }
+                }
+                else
+                {
+                    double a = 0;
+                    @if (q.Id == Model.Cur)
+                    {
+                        <input id="currency-xbox-start" type="hidden" data-currency_name="@q.CurrencyName" data-curcalc="*" data-currency="@q.CurrencyStringConst" data-day_price="@Model.Xboxdata.SPrice">
+                        <p class="xgs-plan">
+                            @localizer["text1"]
+                            @(a = Math.Round(Model.Xboxdata.Price * q.CurrencyConst, 2)) @q.CurrencyName
+                            @localizer["text2"]<span>@(a = Math.Round(Model.Price * q.CurrencyConst, 2)) @q.CurrencyName</span> @localizer["text3"]
+                        </p>
+                        break;
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="xgs-content">
+        <div class="xgs-image" style="background-image: url(/static/img/xboxdata/@Model.Xboxdata.Img1);">
+
+        </div>
+    </div>
+</div>
+<div class="xbox-game-list">
+    <h3 class="xbox-game-title">@localizer["discover"]</h3>
+    <div class="listed-games-items-content">
+        @if (Model.XGs.Count() > 0)
+        {
+            @foreach (var q in Model.XGs)
+            {
+                <div class="xbox-listed-item">
+                    <div class="listed-content-item">
+                        <img src="/static/img/xboxgame/@q.Img" alt="">
+
+                        <div class="listed-content-item-info">
+                            <h3 class="product-name">@q.GameName</h3>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>@localizer["nothing"]</p>
+        }
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

@@ -1,0 +1,68 @@
+﻿@model RegisterModelF
+
+@{
+    Layout = "_LayoutLog-Reg";
+}
+
+@section Css
+{
+    <title>Register</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+}
+
+<div class="center-register-panel">
+    <div class="center-panel-content">
+        <h4 class="logreg_title">@localizer["register"]</h4>
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <div class="form">
+                <div class="pp_logreg-content">
+                    <input class="center-panel-input" asp-for="NickName" type="text" placeholder="@localizer["nickname"]">
+                    <span asp-validation-for="NickName"></span>
+                </div>
+                <div class="pp_logreg-content">
+                    <input class="center-panel-input" asp-for="Email" type="email" placeholder="@localizer["email"]">
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="pp_logreg-content">
+                    <input class="center-panel-input" type="date" asp-for="Dob">
+                    <span asp-validation-for="Dob"></span>
+                </div>
+                <div class="pp_logreg-content">
+                    <div class="pp_input_password-content">
+                        <input id="login_password" class="center-panel-input" asp-for="Password" type="password"
+                               placeholder="@localizer["password"]">
+                        <button onclick="seeorhide_input('login_password')" type="button"
+                                class="seeorhide login_password">
+                            <i class="las la-eye-slash"></i>
+                        </button>
+                    </div>
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="login-info-content">
+                    <div class="pp_logreg-content">
+                        <div class="pp_input_checkbox-content">
+                            <input id="pp_remember_check" class="pp_input_check" type="checkbox" asp-for="Policy">
+                            <span onclick="checkedif('pp_remember_check')"
+                                  class="pp_checkmark pp_remember_check"></span>
+                        </div>
+                        <p>@localizer["policy"]</p>
+                    </div>
+                </div>
+                <input type="submit" class="pp_button pp_form-input" value="@localizer["registerbtn"]">
+            </div>
+        </form>
+        <p class="notorhave">
+            @localizer["log"]
+        </p>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="/static/js/jquery.js"></script>
+
+    <script src="/static/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/static/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/static/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}

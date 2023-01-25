@@ -1,0 +1,113 @@
+﻿@model Product_of_GamerListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Product Of Gamer <code>Recycle</code> Table</h4>
+                <p class="card-description">
+                    <a asp-controller="Admin" asp-action="ProductOfGamerList" class="btn btn-outline-secondary btn-fw">POG Table</a>
+                    <a asp-controller="Admin" asp-action="ProductOfGamerCreate" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th style="width:60px;"> ID </th>
+                                <th> UserID </th>
+                                <th> User </th>
+                                <th> GameNameID </th>
+                                <th> Game Name </th>
+                                <th> DiviceID </th>
+                                <th> Divice </th>
+                                <th> Login </th>
+                                <th> Password </th>
+                                <th> Price </th>
+                                <th> Slider_videolink </th>
+                                <th style="width:200px;"> Slider_img1 </th>
+                                <th style="width:200px;"> Slider_img2 </th>
+                                <th style="width:200px;"> Slider_img3 </th>
+                                <th> Text </th>
+                                <th> IsApproved </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Pogs.Count() > 0)
+                            {
+                                @foreach (var ac in Model.Pogs)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="/adminpanel/productofgameredit/@ac.Id" class="btn btn-outline-info btn-fw">Edit</a>
+
+                                            <form asp-controller="Admin" asp-action="ApprovedPOG" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-warning btn-fw">IsApproved</button>
+                                            </form>
+
+                                            <form asp-controller="Admin" asp-action="DeletePOG" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-danger btn-fw">Delete</button>
+                                            </form>
+                                        </td>
+                                        <td>@ac.Id</td>
+                                        @foreach (var u in Model.Users)
+                                        {
+                                            if (u.Id == ac.UserId)
+                                            {
+                                                <td>@ac.UserId</td>
+                                                <td>@u.UserName</td>
+                                                break;
+                                            }
+                                        }
+                                        @foreach (var gn in Model.Gns)
+                                        {
+                                            if (gn.Id == ac.GameNameID)
+                                            {
+                                                <td>@ac.GameNameID</td>
+                                                <td>@gn.GameOfName</td>
+                                                break;
+                                            }
+                                        }
+                                        @foreach (var d in Model.Divs)
+                                        {
+                                            if (d.Id == ac.DiviceID)
+                                            {
+                                                <td>@ac.DiviceID</td>
+                                                <td>@d.DiviceName</td>
+                                                break;
+                                            }
+                                        }
+                                        <td>@ac.Login</td>
+                                        <td>@ac.Password</td>
+                                        <td>@ac.Price</td>
+                                        <td>@ac.Slider_videolink</td>
+                                        <td><img src="/static/img/pog/@ac.Slider_img1" alt="Xəta baş verdi" width="150" /></td>
+                                        <td><img src="/static/img/pog/@ac.Slider_img2" alt="Xəta baş verdi" width="150" /></td>
+                                        <td><img src="/static/img/pog/@ac.Slider_img3" alt="Xəta baş verdi" width="150" /></td>
+                                        <td>@ac.Text</td>
+                                        <td>@ac.IsApproved</td>
+                                    </tr>
+                                }
+
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model PurchasedProductListViewModel
+
+@section Css
+{
+    <title>Library</title>
+}
+
+<div class="library-page-overlay">
+    <div class="game-library-popup">
+        <div class="game-library-popup-image">
+            <img src="" alt="">
+            <div class="game-guide-content">
+                <a href="">@localizer["how"]</a>
+            </div>
+        </div>
+        <div class="game-library-popup-right">
+            <div class="game-library-popup-info">
+                <h4>@localizer["game"]:<span></span></h4>
+                <h5>@localizer["platform"]:<span></span></h5>
+            </div>
+            <div class="game-library-popup-login">
+                <h4>@localizer["login"]:<span id="popup-login-mail" onclick="copyToClipboard('popup-login-mail')"></span></h4>
+                <h5>@localizer["password"]:<span id="popup-login-pass" onclick="copyToClipboard('popup-login-pass')"></span></h5>
+            </div>
+        </div>
+        <button class="game-library-popup-exit" onclick="library_popup_exit()"><i class="las la-times"></i></button>
+    </div>
+</div>
+
+<div class="library-page-section">
+    <div class="library-titles">
+        <h4>@localizer["mygames"]</h4>
+    </div>
+    <div class="library-games">
+        @if (Model.PPs.Count() > 0 || Model.XboxExpire > DateTime.Now)
+        {
+            @if (Model.XboxExpire > DateTime.Now)
+            {
+                <div class="library-game">
+                    <div class="library-game-image" style="background-image: url(/static/img/xboxdata/@Model.Xbox.Img1);" onclick="library_game_open('@Model.Xbox.Id')" id="@Model.Xbox.Id">
+                        <p class="library-game-image-name">@localizer["xbox"]</p>
+                        <input type="hidden" class="library-game-info-input" data-image="/static/img/xboxdata/@Model.Xbox.Img1" data-name="@Model.Xbox.Title" data-platform="PC" data-login="@Model.Xbox.Login" data-password="@Model.Xbox.Password" data-guide="/guide/xbox">
+                    </div>
+                </div>
+            }
+            if (Model.PPs.Count() > 0)
+            {
+                @foreach (var pp in Model.PPs)
+                {
+                    @foreach (var p in Model.Pros)
+                    {
+                        if (pp.ProductId == p.Id)
+                        {
+                            <div class="library-game">
+                                <div class="library-game-image" style="background-image: url(/static/img/product/@p.Main_img);" onclick="library_game_open('@p.Id')" id="@p.Id">
+                                    <p class="library-game-image-name">@p.Name</p>
+                                    @foreach (var w in Model.Plat)
+                                    {
+                                        if (p.PlatformID == w.Id)
+                                        {
+                                            <input type="hidden" class="library-game-info-input" data-image="/static/img/product/@p.Main_img" data-name="@p.Name" data-platform="@w.PlatformName" data-login="@p.Login" data-password="@p.Password" data-guide="@w.Link">
+                                            break;
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+
+                }
+            }
+        }
+        else
+        {
+            <div class="library-games">
+                <div class="library-games-empty">
+                    <h1>@localizer["havenot"]</h1>
+                    <a href="/product/list">@localizer["explore"]</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/vanilla-tilt.js"></script>
+}

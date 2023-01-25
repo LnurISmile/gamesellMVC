@@ -1,0 +1,165 @@
+﻿@model Product_of_GamerModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Product Of Gamer Create</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="ProductOfGamerCreate" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UserId" class="col-sm-3 col-form-label">User</label>
+                            <div class="col-sm-9">
+                                <select asp-for="UserId" class="form-control">
+                                    <option selected>Select</option>
+                                    @foreach (var u in Model.Users)
+                                    {
+                                        <option value="@u.Id">@u.UserName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true" selected>True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="GameNameID" class="col-sm-3 col-form-label">Game</label>
+                            <div class="col-sm-9">
+                                <select asp-for="GameNameID" class="form-control">
+                                    <option selected>Select</option>
+                                    @foreach (var u in Model.Gns)
+                                    {
+                                        <option value="@u.Id">@u.GameOfName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="DiviceID" class="col-sm-3 col-form-label">Divice</label>
+                            <div class="col-sm-9">
+                                <select asp-for="DiviceID" class="form-control">
+                                    <option selected>Select</option>
+                                    @foreach (var u in Model.Divs)
+                                    {
+                                        <option value="@u.Id">@u.DiviceName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Login" class="col-sm-3 col-form-label">Login</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Login" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Price" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img1">Slider Image 1</label>
+                            <input type="hidden" asp-for="Slider_img1" />
+                            <input type="file" name="file1" class="form-control" />
+                            <span asp-validation-for="Slider_img1" class="text-danger"></span>
+
+                            @*<label asp-for="Img">Image</label>
+            <input type="hidden" asp-for="Img" />
+            <input type="file" name="file1" class="file-upload-default">
+            <div class="input-group col-xs-12">
+                <input type="text" asp-for="Img" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                </span>
+            </div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Slider_videolink" class="col-sm-3 col-form-label">Slider Video Link</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Slider_videolink" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img2">Slider Image 2</label>
+                            <input type="hidden" asp-for="Slider_img2" />
+                            <input type="file" name="file2" class="form-control" />
+                            <span asp-validation-for="Slider_img2" class="text-danger"></span>
+
+                            @*<label asp-for="Img">Image</label>
+            <input type="hidden" asp-for="Img" />
+            <input type="file" name="file1" class="file-upload-default">
+            <div class="input-group col-xs-12">
+                <input type="text" asp-for="Img" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                </span>
+            </div>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Text" class="col-sm-3 col-form-label">Text</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Text" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img3">Slider Image 3</label>
+                            <input type="hidden" asp-for="Slider_img3" />
+                            <input type="file" name="file3" class="form-control" />
+                            <span asp-validation-for="Slider_img3" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

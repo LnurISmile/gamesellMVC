@@ -1,0 +1,463 @@
+﻿@model ProductModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Product Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="ProductEdit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Name" class="col-sm-3 col-form-label">Game Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Name" value="@Model.Name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Login" class="col-sm-3 col-form-label">Login</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Login" value="@Model.Login" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Password" value="@Model.Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Key" class="col-sm-3 col-form-label">Key</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Key" value="@Model.Key" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Contenttype" class="col-sm-3 col-form-label">Content Type</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Contenttype" value="@Model.Contenttype" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Price" value="@Model.Price" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Company_name" class="col-sm-3 col-form-label">Company Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Company_name" value="@Model.Company_name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Activation_zone" class="col-sm-3 col-form-label">Activation Zone</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Activation_zone" value="@Model.Activation_zone" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Onlineornot" class="col-sm-3 col-form-label">Online Or Not</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Onlineornot" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Online</option>
+                                    <option value="false">Offline</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Signleplayer" class="col-sm-3 col-form-label">Signle Player</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Signleplayer" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Have</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Multiplayer" class="col-sm-3 col-form-label">Multi Player</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Multiplayer" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Have</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Co_op" class="col-sm-3 col-form-label">Co-Op</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Co_op" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Have</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Type_active" class="col-sm-3 col-form-label">Type Active</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Type_active" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Have</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="twoD" class="col-sm-3 col-form-label">2D</label>
+                            <div class="col-sm-9">
+                                <select asp-for="twoD" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">2D</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="threeD" class="col-sm-3 col-form-label">3D</label>
+                            <div class="col-sm-9">
+                                <select asp-for="threeD" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">3D</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="VR" class="col-sm-3 col-form-label">VR</label>
+                            <div class="col-sm-9">
+                                <select asp-for="VR" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">VR</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Slider_videolink" class="col-sm-3 col-form-label">Slider Video Link</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Slider_videolink" value="@Model.Slider_videolink" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Text" class="col-sm-3 col-form-label">Text</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Text" value="@Model.Text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Discount_percent" class="col-sm-3 col-form-label">Discount Percent</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Discount_percent" value="@Model.Discount_percent" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Instock" class="col-sm-3 col-form-label">Instock</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Instock" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Have</option>
+                                    <option value="false">Not</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Stocksize" class="col-sm-3 col-form-label">Stock Size</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Stocksize" value="@Model.Stocksize" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Number_of_sale" class="col-sm-3 col-form-label">Number of Sale</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Number_of_sale" value="@Model.Number_of_sale" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Url" class="col-sm-3 col-form-label">Url</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Url" value="@Model.Url" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UpComing" class="col-sm-3 col-form-label">Upcoming</label>
+                            <div class="col-sm-9">
+                                <select asp-for="UpComing" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Upcoming</option>
+                                    <option value="false">Comed</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ReleaseDate" class="col-sm-3 col-form-label">DateTime</label>
+                            <div class="col-sm-9">
+                                <input asp-for="ReleaseDate" value="@Model.ReleaseDate" class="form-control" />
+                                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="PlatformID" class="col-sm-3 col-form-label">Platform</label>
+                            <div class="col-sm-9">
+                                <select asp-for="PlatformID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.Plats)
+                                    {
+                                        <option value="@u.Id">@u.PlatformName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CategoryID" class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <select asp-for="CategoryID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.GCs)
+                                    {
+                                        <option value="@u.Id">@u.GameCategoryName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="JanraID" class="col-sm-3 col-form-label">Janra</label>
+                            <div class="col-sm-9">
+                                <select asp-for="JanraID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.Jans)
+                                    {
+                                        <option value="@u.Id">@u.JanraName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CameraperspectiveID" class="col-sm-3 col-form-label">Camera Perspective</label>
+                            <div class="col-sm-9">
+                                <select asp-for="CameraperspectiveID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.CPs)
+                                    {
+                                        <option value="@u.Id">@u.CameraPerspevtiveName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="PublisherID" class="col-sm-3 col-form-label">Publisher</label>
+                            <div class="col-sm-9">
+                                <select asp-for="PublisherID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.Pubs)
+                                    {
+                                        <option value="@u.Id">@u.PublisherName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="DeveloperID" class="col-sm-3 col-form-label">Developer</label>
+                            <div class="col-sm-9">
+                                <select asp-for="DeveloperID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.Devs)
+                                    {
+                                        <option value="@u.Id">@u.DeveloperName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Activation_countryID" class="col-sm-3 col-form-label">Activation Country</label>
+                            <div class="col-sm-9">
+                                <select asp-for="Activation_countryID" class="form-control">
+                                    <option disabled>Select</option>
+                                    @foreach (var u in Model.ACs)
+                                    {
+                                        <option value="@u.Id">@u.ActivationCountryName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IndexSlider" class="col-sm-3 col-form-label">Index Slider</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IndexSlider" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Main_img">Main Image</label>
+                            <input type="hidden" asp-for="Main_img" />
+                            <img src="~/static/img/product/@Model.Main_img" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file1" class="form-control" />
+                            <span asp-validation-for="Main_img" class="text-danger"></span>
+
+                            @*<label asp-for="Img">Image</label>
+        <input type="hidden" asp-for="Img" />
+        <input type="file" name="file1" class="file-upload-default">
+        <div class="input-group col-xs-12">
+            <input type="text" asp-for="Img" class="form-control file-upload-info" disabled placeholder="Upload Image">
+            <span class="input-group-append">
+                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+            </span>
+        </div>*@
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img1">Slider Image 1</label>
+                            <input type="hidden" asp-for="Slider_img1" />
+                            <img src="~/static/img/product/@Model.Slider_img1" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file2" class="form-control" />
+                            <span asp-validation-for="Slider_img1" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img2">Slider Image 2</label>
+                            <input type="hidden" asp-for="Slider_img2" />
+                            <img src="~/static/img/product/@Model.Slider_img2" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file3" class="form-control" />
+                            <span asp-validation-for="Slider_img2" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Slider_img3">Slider Image 3</label>
+                            <input type="hidden" asp-for="Slider_img3" />
+                            <img src="~/static/img/product/@Model.Slider_img3" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file4" class="form-control" />
+                            <span asp-validation-for="Slider_img3" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+﻿@model Product_of_GamerDetailModel
+
+<div class="gamer-shop-in-content">
+    <div class="gsic-left">
+        <div class="gsic-slider">
+            <div class="gsic-slider-arrows">
+                <button class="gsic-slider-arrows-btn gsic-slider-arrows-left"><i class="las la-angle-double-left"></i></button>
+                <button class="gsic-slider-arrows-btn gsic-slider-arrows-right"><i class="las la-angle-double-right"></i></button>
+            </div>
+            <div class="gsic-slider-content">
+                <div class="gsc-slider-item"
+                     style="background-image: url(/wwwroot/img/pog/@Model.ProductofGamers.Slider_img1 );">
+                </div>
+                <div class="gsc-slider-item"
+                     style="background-image: url(/wwwroot/img/pog/@Model.ProductofGamers.Slider_img2 );">
+                </div>
+                <div class="gsc-slider-item"
+                     style="background-image: url(/wwwroot/img/pog/@Model.ProductofGamers.Slider_img3);">
+                </div>
+            </div>
+        </div>
+        <div class="gsic-info">
+            <h2>Heading</h2>
+            <br>
+            @Model.ProductofGamers.Text
+        </div>
+    </div>
+    <div class="gsic-right">
+        <div class="gsic-seller">
+            @foreach (var u in Model.Users)
+            {
+                if (Model.ProductofGamers.UserId == u.Id)
+                {
+                    <div class="gsic-seller-logo" style="background-image: url(/wwwroot/img/users/@u.profile_pic);">
+
+                    </div>
+                    <div class="gsic-seller-info">
+                        <h3 class="gsic-seller-name">@u.UserName</h3>
+                        <div class="gsic-rating">
+                            <div class="gsic-star">☆ ☆ ☆ ☆ ☆<span style="width: 75%;">★ ★ ★ ★ ★</span></div> @* ??? *@
+
+                        </div>
+                    </div>
+                    break;
+                }
+            }
+
+        </div>
+        <div class="gsic-buyinfo">
+            <ul class="gsic-buyinfo-content">
+                <li><p>Item number</p> <h6>@Model.ProductofGamers.Id</h6></li>
+                <li><p>Date</p> <h6>@Model.ProductofGamers.DateTime</h6></li>
+                @foreach (var g in Model.Gns)
+                {
+                    @if (Model.ProductofGamers.GameNameID == g.Id)
+                    {
+                        <li><p>Category</p> <a href="gamer_shop.html">@g.GameOfName</a></li> @* link ??? *@
+                    }
+                }
+                <li><p>Views</p> <h6>@Model.ProductofGamers.Views</h6></li>
+                <li><p>Status</p> <h6>New</h6></li> @* hesab *@
+            </ul>
+        </div>
+        @*<div class="gsic-buy-content">
+            <form asp-controller="Cart" asp-action="AddtoCartPOG" method="post">
+                <input type="hidden" name="pogId" value="@Model.ProductofGamers.Id" />
+                <button type="submit" class="gsic-buy-btn">Add to Cart</button>
+            </form>
+        </div>*@
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

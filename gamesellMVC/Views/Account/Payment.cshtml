@@ -1,0 +1,64 @@
+﻿@model AddBalanceModel
+
+@section Css
+{
+    <title>Add balance confirm</title>
+}
+
+<div class="text-center">
+
+</div>
+<div class="add-balance-content">
+    <h2 class="h4" style="color:#fff">@localizer["tec"]</h2>
+    @if (false)
+    {
+        <div class="abc-left">
+            <div class="abc-left-content">
+                <div class="abc-info-panel">
+                    <div class="abc-profile-image" style="background-image: url(@Model.User.profile_pic);"></div>
+                    <h4 class="abc-profile-balance">@localizer["yourbalance"] : <span>@Math.Round(Model.User.Balance, 2) $</span></h4>
+                </div>
+                <div class="abc-add-balance-senttings">
+                    <div class="abc-choose-paytype">
+                        <div class="abc-paytype-section-50">
+                            <div class="abc-input-section-forinfo">
+                                <label class="abc-forinfo-title" for="paytype">@localizer["fullname"]</label>
+                                <h3 class="abc-forinfo-text">@Model.User.FirstName @Model.User.LastName</h3>
+                            </div>
+                            <div class="abc-input-section-forinfo">
+                                <label class="abc-forinfo-title" for="paytype">@localizer["date"]</label>
+                                <h3 class="abc-forinfo-text">@DateTime.Now.ToShortDateString()</h3>
+                            </div>
+                        </div>
+                        <div class="abc-paytype-section-50">
+                            <div class="abc-input-section-forinfo">
+                                <label class="abc-forinfo-title" for="paytype">@localizer["amount"]</label>
+                                <h3 class="abc-forinfo-text">@Model.amount $</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ID" value="@Model.BIM.Id" id="balinfoId" />
+                    <form method="POST" action="https://epoint.az/api/1/checkout" accept-charset="utf-8">
+                        <input type="hidden" asp-for="data" value="@Model.data" />
+                        <input type="hidden" asp-for="signature" value="@Model.signature" />
+                        <div class="pay-to-next">
+                            <button type="submit" class="abc-pay-next-button" id="btnpay">@localizer["pay"]</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="abc-right">
+            <div class="abc-right-content">
+                <p>
+                    @localizer["text"]
+                </p>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts
+{
+    <script src="~/static/js/updatebalinfo.js"></script>
+}

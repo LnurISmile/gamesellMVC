@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/img/playpoint_ico.png">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/fonts/lineawesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/glide.core.min.css">
+    @RenderSection("Css", false)
+    <link href="~/static/css/jquery-ui.css" rel="stylesheet" />
+    <link href="~/static/css/animate.css" rel="stylesheet" />
+    <link href="~/static/css/style.min.css" rel="stylesheet" />
+    <link href="~/static/css/responsive.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header-overlay-remove-tag " onclick="overlay_remove()">
+
+    </div>
+    @await Html.PartialAsync("_navbar")
+
+    @if (TempData["message"] != null)
+    {
+        <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+    }
+
+    @RenderBody()
+
+
+    <footer>
+        @await Html.PartialAsync("_footer")
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @RenderSection("Scripts", false)
+    <script src="~/static/js/getpicture.js"></script>
+    <script src="~/static/js/jquery-ui.js"></script>
+    <script src="~/static/js/ajaxAC.js"></script>
+    <script src="~/static/js/getcart.js"></script>
+    <script src="~/static/js/slick-animation.min.js"></script>
+    <script src="~/static/js/script.js"></script>
+</body>
+</html>

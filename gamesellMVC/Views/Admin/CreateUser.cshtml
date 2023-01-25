@@ -1,0 +1,237 @@
+﻿@model RegisterAdminModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">User Create</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="CreateUser" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="FirstName" class="col-sm-3 col-form-label">First Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="FirstName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="LastName" class="col-sm-3 col-form-label">Last Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="LastName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UserName" class="col-sm-3 col-form-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="UserName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="MobileNumber" class="col-sm-3 col-form-label">Mobile Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="MobileNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Dob" class="col-sm-3 col-form-label">D.O.B.</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Dob" class="form-control" />
+                                <span asp-validation-for="Dob" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Email" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Email" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="EmailConfirmed" class="col-sm-3 col-form-label">Email Confirmed</label>
+                            <div class="col-sm-9">
+                                <select asp-for="EmailConfirmed" class="form-control">
+                                    <option value="true" selected>True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="languageID" class="col-sm-3 col-form-label">Language</label>
+                            <div class="col-sm-9">
+                                <select asp-for="languageID" class="form-control">
+                                    <option>Select</option>
+                                    @foreach (var u in Model.Langs)
+                                    {
+                                        <option value="@u.Id">@u.LanguageName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="currencyID" class="col-sm-3 col-form-label">Currency</label>
+                            <div class="col-sm-9">
+                                <select asp-for="currencyID" class="form-control">
+                                    <option>Select</option>
+                                    @foreach (var u in Model.Curs)
+                                    {
+                                        <option value="@u.Id">@u.CurrencyName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true" selected>True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="seller_rank" class="col-sm-3 col-form-label">Seller Rank</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="seller_rank" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="premium" class="col-sm-3 col-form-label">Premium</label>
+                            <div class="col-sm-9">
+                                <select asp-for="premium" class="form-control">
+                                    <option disabled selected>Select</option>
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="like" class="col-sm-3 col-form-label">Like</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="like" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="dislike" class="col-sm-3 col-form-label">Dislike</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="dislike" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="profile_pic">Profile Picture</label>
+                            <input type="hidden" asp-for="profile_pic" />
+                            <input type="file" name="file1" class="form-control" />
+                            <span asp-validation-for="profile_pic" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="back_pic">Background Picture</label>
+                            <input type="hidden" asp-for="back_pic" />
+                            <input type="file" name="file2" class="form-control" />
+                            <span asp-validation-for="back_pic" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="slider_1">Slider Picture 1</label>
+                            <input type="hidden" asp-for="slider_1" />
+                            <input type="file" name="file3" class="form-control" />
+                            <span asp-validation-for="slider_1" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="slider_2">Slider Picture 2</label>
+                            <input type="hidden" asp-for="slider_2" />
+                            <input type="file" name="file4" class="form-control" />
+                            <span asp-validation-for="slider_2" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="slider_3">Slider Picture 3</label>
+                            <input type="hidden" asp-for="slider_3" />
+                            <input type="file" name="file5" class="form-control" />
+                            <span asp-validation-for="slider_3" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <hr />
+                        @foreach (var role in ViewBag.Roles)
+                        {
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox"
+                                       class="custom-control-input"
+                                       name="selectedRoles"
+                                       value="@role"
+                                       id="@role" />
+                                <label class="custom-control-label" for="@role">@role</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

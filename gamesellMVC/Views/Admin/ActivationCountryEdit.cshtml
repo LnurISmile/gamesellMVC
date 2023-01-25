@@ -1,0 +1,38 @@
+﻿@model ActivationCountryModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Activation Country Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="ActivationCountryEdit" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ActivationCountryName" class="col-sm-3 col-form-label">Activation Country Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="ActivationCountryName" value="@Model.ActivationCountryName" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

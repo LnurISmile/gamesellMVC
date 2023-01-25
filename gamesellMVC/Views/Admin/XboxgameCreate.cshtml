@@ -1,0 +1,44 @@
+﻿@model XboxgameModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Xbox Game Create</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="XboxgameCreate" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="GameName" class="col-sm-3 col-form-label">Game Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="GameName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img">Image</label>
+                            <input type="hidden" asp-for="Img" />
+                            <input type="file" name="file" class="form-control" />
+                            <span asp-validation-for="Img" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Priority" class="col-sm-3 col-form-label">Priority</label>
+                            <div class="col-sm-9">
+                                <input type="number" asp-for="Priority" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

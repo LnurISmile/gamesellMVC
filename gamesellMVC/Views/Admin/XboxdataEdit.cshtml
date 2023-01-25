@@ -1,0 +1,112 @@
+﻿@model XboxdataModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Xbox Data Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="XboxdataEdit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Title" class="col-sm-3 col-form-label">Title</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Title" value="@Model.Title" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Login" class="col-sm-3 col-form-label">Login</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Login" value="@Model.Login" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Password" class="col-sm-3 col-form-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Password" value="@Model.Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Price" value="@Model.Price" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="SPrice" class="col-sm-3 col-form-label">String Price</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="SPrice" value="@Model.SPrice" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img1">Image 1</label>
+                            <input type="hidden" asp-for="Img1" />
+                            <img src="~/static/img/xboxdata/@Model.Img1" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file1" class="form-control" />
+                            <span asp-validation-for="Img1" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img2">Image 2</label>
+                            <input type="hidden" asp-for="Img2" />
+                            <img src="~/static/img/xboxdata/@Model.Img2" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file2" class="form-control" />
+                            <span asp-validation-for="Img2" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img3">Image 3</label>
+                            <input type="hidden" asp-for="Img3" />
+                            <img src="~/static/img/xboxdata/@Model.Img3" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file3" class="form-control" />
+                            <span asp-validation-for="Img3" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img4">Image 4</label>
+                            <input type="hidden" asp-for="Img4" />
+                            <img src="~/static/img/xboxdata/@Model.Img4" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file4" class="form-control" />
+                            <span asp-validation-for="Img4" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img5">Image 5</label>
+                            <input type="hidden" asp-for="Img5" />
+                            <img src="~/static/img/xboxdata/@Model.Img5" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file5" class="form-control" />
+                            <span asp-validation-for="Img5" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

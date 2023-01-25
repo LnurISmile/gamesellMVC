@@ -1,0 +1,83 @@
+﻿@model PurchasedProductModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Purchased Product Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="PurchasedProductEdit" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="UserId" class="col-sm-3 col-form-label">User</label>
+                            <div class="col-sm-9">
+                                <select asp-for="UserId" class="form-control">
+                                    <option>Select</option>
+                                    @foreach (var u in Model.Users)
+                                    {
+                                        <option value="@u.Id">@u.UserName</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="ProductId" class="col-sm-3 col-form-label">Product</label>
+                            <div class="col-sm-9">
+                                <select asp-for="ProductId" class="form-control">
+                                    <option>Select</option>
+                                    @foreach (var p in Model.Pros)
+                                    {
+                                        <option value="@p.Id">@p.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="DateTime" class="col-sm-3 col-form-label">DateTime</label>
+                            <div class="col-sm-9">
+                                <input asp-for="DateTime" value="@Model.DateTime" class="form-control" />
+                                <span asp-validation-for="DateTime" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsXbox" class="col-sm-3 col-form-label">Xbox</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsXbox" class="form-control">
+                                    <option disabled>Select</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

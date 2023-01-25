@@ -1,0 +1,76 @@
+﻿@model DeveloperModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Currency Create</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="DeveloperCreate" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="DeveloperName" class="col-sm-3 col-form-label">Developer Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="DeveloperName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true" selected>True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img">Image</label>
+                            <input type="hidden" asp-for="Img" />
+                            <input type="file" name="file1" class="form-control"/>
+                            <span asp-validation-for="Img" class="text-danger"></span>
+
+                            @*<label asp-for="Img">Image</label>
+                            <input type="hidden" asp-for="Img" />
+                            <input type="file" name="file1" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" asp-for="Img" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>*@
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Back_img">Background Image</label>
+                            <input type="hidden" asp-for="Back_img" />
+                            <input type="file" name="file2" class="form-control"/>
+                            <span asp-validation-for="Back_img" class="text-danger"></span>
+
+                            @*<label asp-for="Back_img">Background Image</label>
+                            <input type="hidden" asp-for="Back_img" />
+                            <input type="file" name="file2" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" asp-for="Back_img" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                </span>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

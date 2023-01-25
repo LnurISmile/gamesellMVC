@@ -1,0 +1,215 @@
+﻿@model ProductListViewModel
+
+@section Css
+{
+    <title>Categories</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+}
+
+@if (Model.IPs.Count() > 0)
+{
+    @foreach (var q in Model.IPs.Where(i => i.Product))
+    {
+        <div class="backtop-info" style="background-image: url(/static/img/instructionpanel/ @q.Img );">
+            <div class="backtop-info-left">
+                @*<h4>@q.ImgTitle</h4>*@
+                <img src="/static/img/instructionpanel/@q.ImgTitle" alt="">
+                <p>
+                    @q.Text
+                </p>
+            </div>
+        </div>
+        break;
+    }
+}
+else
+{
+    <div class="backtop-info" style="background-image: url(/static/images/elden-ring-02.jpg);">
+        <div class="backtop-info-left">
+            @*<h4>Elden Ring</h4>*@
+            <img src="/images/Elden_Ring_-_Title.png" alt="">
+            <p>
+                Elden Ring is an upcoming action role-playing game developed by
+                FromSoftware and published by Bandai Namco Entertainment. The game,
+                directed by Hidetaka Miyazaki, was made in collaboration with fantasy
+                novelist George R. R. Martin, who wrote its setting. Elden Ring is
+                scheduled to be released for Microsoft Windows, PlayStation 4, PlayStation
+                5, Xbox One, and Xbox Series X/S on February 25, 2022.
+            </p>
+        </div>
+    </div>
+}
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+<form asp-controller="Product" asp-action="ProductSearch" method="post">
+    <div class="category-content">
+        <div class="category-group-search-listbox">
+            <div class="category-select-group">
+                <label for="">@localizer["category"]</label>
+                <select class="category-select" name="gcId" id="">
+                    <option value="0" selected>@localizer["all"]</option>
+                    @foreach (var g in Model.GCs)
+                    {
+                        <option value="@g.Id">@g.GameCategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="category-select-group">
+                <label for="">@localizer["janra"]</label>
+                <select class="category-select" name="janId" id="">
+                    <option value="0" selected>@localizer["all"]</option>
+                    @foreach (var j in Model.Jans)
+                    {
+                        <option value="@j.Id">@j.JanraName</option>
+                    }
+                </select>
+            </div>
+            <div class="category-select-group">
+                <label for="">@localizer["camerap"]</label>
+                <select class="category-select" name="cpId" id="">
+                    <option value="0" selected>@localizer["all"]</option>
+                    @foreach (var c in Model.CPs)
+                    {
+                        <option value="@c.Id">@c.CameraPerspevtiveName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="category-group-search-button">
+            <button type="submit">@localizer["search"]</button>
+        </div>
+    </div>
+</form>
+
+<div class="listed-games-content">
+
+    <div class="listed-games-items-content">
+        @foreach (var p in Model.Pros)
+        {
+            double a = 0;
+            <a href="/product/details/@p.Id/@p.Url">
+                <div class="listed-content-item">
+                    <img src="/static/img/product/@p.Main_img" alt="">
+
+                    <div class="listed-content-item-info">
+                        <h3 class="product-name">@p.Name</h3>
+                        <h4 class="product-offer-name">@p.Company_name</h4>
+                        <h4 class="product-price">
+                            @if (p.Price == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                if (p.Discount_percent == 0)
+                                {
+                                    if (User.Identity.IsAuthenticated == false)
+                                    {
+                                        foreach (var q in Model.Curs)
+                                        {
+                                            if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                            {
+                                                @(a = Math.Round(p.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (var q in Model.Curs)
+                                        {
+                                            if (q.Id == Model.Cur)
+                                            {
+                                                @(a = Math.Round(p.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    double b = p.ConstNumber = p.Price - (p.Price * p.Discount_percent) / 100;
+                                    if (User.Identity.IsAuthenticated == false)
+                                    {
+                                        foreach (var q in Model.Curs)
+                                        {
+                                            if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                            {
+                                                @(a = Math.Round(b * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (var q in Model.Curs)
+                                        {
+                                            if (q.Id == Model.Cur)
+                                            {
+                                                @(a = Math.Round(b * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        </h4>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+    <div class="listed-more-center">
+        <div class="pp-pagination">
+            @if (Model.PageInfo.TotalItems <= 21)
+            {
+
+            }
+            else
+            {
+                @*@for (int i = 0; i < Model.PageInfo.TotalPages(); i++)
+                    {
+                        <a class="pagination-link" href="/product/list?page=@(i+1)">@(i+1)</a>
+                    }*@
+
+                <a href="/product/list?page=@(Model.PageInfo.CurrentPage -= 1)" class="pagination-link pagination-link-long"><i class="las la-angle-left"></i></a>
+                if (Model.PageInfo.CurrentPage + 1 != 1)
+                {
+                    <a class="pagination-link" href="/product/list?page=1">...</a>
+                }
+                if (Model.PageInfo.CurrentPage - 1 > 0)
+                {
+                    <a class="pagination-link" href="/product/list?page=@(Model.PageInfo.CurrentPage - 1)">@(Model.PageInfo.CurrentPage - 1)</a>
+                }
+                if (Model.PageInfo.CurrentPage > 0)
+                {
+                    <a class="pagination-link" href="/product/list?page=@(Model.PageInfo.CurrentPage )">@(Model.PageInfo.CurrentPage)</a>
+                }
+                <a class="pagination-link" href="/product/list?page=@(Model.PageInfo.CurrentPage + 1)">@(Model.PageInfo.CurrentPage + 1)</a>
+                if (!(Model.PageInfo.CurrentPage + 2 > Model.lastpage))
+                {
+                    <a class="pagination-link" href="/product/list?page=@(Model.PageInfo.CurrentPage + 2)">@(Model.PageInfo.CurrentPage + 2)</a>
+                }
+                if (!(Model.PageInfo.CurrentPage + 3 > Model.lastpage))
+                {
+                    <a class="pagination-link" href="/product/list?page=@(Model.PageInfo.CurrentPage + 3)">@(Model.PageInfo.CurrentPage + 3)</a>
+                }
+                if (Model.PageInfo.CurrentPage + 1 != Model.lastpage)
+                {
+                    <a class="pagination-link" href="/product/list?page=@Model.lastpage">...</a>
+                }
+                <a href="/product/list?page=@(Model.PageInfo.CurrentPage += 2)" class="pagination-link pagination-link-long"><i class="las la-angle-right"></i></a>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

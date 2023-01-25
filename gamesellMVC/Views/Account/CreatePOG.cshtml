@@ -1,0 +1,85 @@
+﻿@model Product_of_GamerModel
+
+
+@inject IViewLocalizer localizer
+<div class="form">
+    <form asp-controller="Account" asp-action="ProductOfGamerCreate" method="post" enctype="multipart/form-data">
+        <div class="gamer-shop-add-content">
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" for="">@localizer["title"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="GameNameID">@localizer["category"]</label>
+                <select class="gsac-input-tool gsac-input-select" asp-for="GameNameID">
+                    <option selected disabled>@localizer["select"]</option>
+                    @foreach (var g in Model.Gns)
+                    {
+                        <option value="@g.Id">@g.GameOfName</option>
+                    }
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" for="">@localizer["categoryitem"]</label>
+                <select class="gsac-input-tool gsac-input-select" name="" id="">
+                    <option selected disabled>@localizer["select"]</option>
+                    <option value="1">games1</option>
+
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="DiviceID">@localizer["divice"]</label>
+                <select class="gsac-input-tool gsac-input-select" asp-for="DiviceID">
+                    <option selected disabled>@localizer["select"]</option>
+                    @foreach (var g in Model.Divs)
+                    {
+                        <option value="@g.Id">@g.DiviceName</option>
+                    }
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Login">@localizer["login"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text" asp-for="Login">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Password">@localizer["password"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text" asp-for="Password">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Price">@localizer["price"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text" asp-for="Price">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_videolink">@localizer["videolink"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text" asp-for="Slider_videolink">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img1">@localizer["image1"]</label>
+                <input type="hidden" asp-for="Slider_img1" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file1">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img2">@localizer["image2"]</label>
+                <input type="hidden" asp-for="Slider_img2" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file2">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img3">@localizer["image3"]</label>
+                <input type="hidden" asp-for="Slider_img3" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file3">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Text">@localizer["text"]</label>
+                <textarea class="gsac-input-tool gsac-input-textarea" asp-for="Text"></textarea>
+            </div>
+            <button type="submit" class="pp_button gsac-btn">@localizer["add"]</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

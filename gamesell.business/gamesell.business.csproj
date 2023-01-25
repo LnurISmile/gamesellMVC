@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gamesell.data\gamesell.data.csproj" />
+    <ProjectReference Include="..\gamesell.entity\gamesell.entity.csproj" />
+  </ItemGroup>
+
+	
+
+	
+</Project>

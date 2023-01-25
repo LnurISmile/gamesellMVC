@@ -1,0 +1,89 @@
+﻿@model Product_of_GamerModel
+
+
+@inject IViewLocalizer localizer
+<div class="form">
+    <form asp-controller="Account" asp-action="ProductOfGamerEdit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="POGId" value="@Model.Id" />
+        <div class="gamer-shop-add-content">
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" for="">@localizer["title"]</label>
+                <input class="gsac-input-tool gsac-input-text" type="text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="GameNameID">@localizer["category"]</label>
+                <select class="gsac-input-tool gsac-input-select" asp-for="GameNameID">
+                    <option disabled>@localizer["select"]</option>
+                    @foreach (var g in Model.Gns)
+                    {
+                        <option value="@g.Id">@g.GameOfName</option>
+                    }
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" for="">@localizer["categoryitem"]</label>
+                <select class="gsac-input-tool gsac-input-select" name="" id="">
+                    <option disabled>@localizer["select"]</option>
+                    <option value="1">games1</option>
+
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="DiviceID">@localizer["divice"]</label>
+                <select class="gsac-input-tool gsac-input-select" asp-for="DiviceID">
+                    <option disabled>@localizer["select"]</option>
+                    @foreach (var g in Model.Divs)
+                    {
+                        <option value="@g.Id">@g.DiviceName</option>
+                    }
+                </select>
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Login">@localizer["login"]</label>
+                <input type="text" asp-for="Login" value="@Model.Login" class="gsac-input-tool gsac-input-text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Password">@localizer["password"]</label>
+                <input type="text" asp-for="Password" value="@Model.Password" class="gsac-input-tool gsac-input-text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Price">@localizer["price"]</label>
+                <input type="text" asp-for="Price" value="@Model.Price" class="gsac-input-tool gsac-input-text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_videolink">@localizer["videolink"]</label>
+                <input type="text" asp-for="Slider_videolink" value="@Model.Slider_videolink" class="gsac-input-tool gsac-input-text">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img1">@localizer["image1"]</label>
+                <input type="hidden" asp-for="Slider_img1" />
+                <img src="~/img/pog/@Model.Slider_img1" width="150" alt="Xəta baş verdi" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file1">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img2">@localizer["image2"]</label>
+                <input type="hidden" asp-for="Slider_img2" />
+                <img src="~/img/pog/@Model.Slider_img2" width="150" alt="Xəta baş verdi" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file2">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Slider_img3">@localizer["image3"]</label>
+                <input type="hidden" asp-for="Slider_img3" />
+                <img src="~/img/pog/@Model.Slider_img3" width="150" alt="Xəta baş verdi" />
+                <input class="gsac-input-tool gsac-input-file" type="file" name="file3">
+            </div>
+            <div class="gsac-input-content">
+                <label class="gsac-input-label" asp-for="Text">@localizer["text"]</label>
+                <textarea type="text" asp-for="Text" value="@Model.Text" class="gsac-input-tool gsac-input-textarea"></textarea>
+            </div>
+            <button type="submit" class="pp_button gsac-btn">@localizer["update"]</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

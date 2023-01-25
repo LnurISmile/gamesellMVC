@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="eight" xml:space="preserve">
+    <value>&lt;span&gt;8.Balance Loading and Expense Terms&lt;/span&gt;  &lt;br /&gt;
+a) Members know that notifications must be made for cardless transactions or payments made from ATMs via internet banking. The member knows that the payment will not be transferred to his account without notice. PlayPoint is not responsible for any complaints that may arise for this reason. &lt;br /&gt; 
+b) Payments made and reported by the Member are recorded in his account as a digital balance and the Member can spend as much as he wants at any time. The payment added to the balance does not automatically increase or decrease over time without any expense or sale. &lt;br /&gt; 
+c) Payment Brokerage Company is used during the members' balance loading operations and GameSatis is not responsible for any material or other damages that may occur as a result of delays during these loadings. &lt;br /&gt; 
+d) As a result of the addition of a digital balance in exchange for real money, PlayPoint reserves the right to request additional information and documents for security purposes, if necessary. This information and documents shall be obtained as specified in the Identification System (Article 7) and may be used only in accordance with the Privacy Policy and the Terms of Use of the Information (Article 15). &lt;br /&gt; 
+e) The digital balance added to the member's account is received in Azerbaijani Manat (AZN). For card payments from accounts in foreign currency, the amount of foreign currency withdrawn from the Member's account is determined by the bank in accordance with the current exchange rate of the bank where you pay. PlayPoint is not responsible for commissions or other transaction fees charged by your bank for such payments. &lt;br /&gt; 
+f) The Member accepts and undertakes to use the digital balance only in accordance with the amount paid for in-site purchases and not to withdraw this balance in part and / or in full to his / her bank account.</value>
+  </data>
+  <data name="eighteen" xml:space="preserve">
+    <value>&lt;span&gt;18.PlayPoint profiles&lt;/span&gt;  &lt;br /&gt;
+Profiles sold by PlayPoint are wholly owned by PlayPoint and cannot be sold or transferred. Instead, those who sell or own these profiles will be required to pay $ 1,000 ($ 1,000) in damages.
+Game profiles taken from a member in PlayPoint and added to the library can only be played by including the profile. The members are considered to have accepted and committed themselves.</value>
+  </data>
+  <data name="eleven" xml:space="preserve">
+    <value>&lt;span&gt;11.Terms of return and cancellation of goods or services&lt;/span&gt;  &lt;br /&gt; 
+a) If the goods or services are defective, used or not working, the goods or services should be returned if possible. Other payments, exchanges or cancellations are at PlayPoint's discretion. &lt;br /&gt; 
+b) The Seller accepts and undertakes that transactions sold in the Market but not commenced within the prescribed time limits or postponed despite the buyer's disapproval will be canceled without notice. &lt;br /&gt; 
+c) If the goods or services sold in the market do not meet the specifications specified in the advertisement, PlayPoint is obliged to contact the seller at the request of the buyer and manage the order cancellation process. &lt;br /&gt; 
+d) It is not possible to cancel or return profitable services such as advertising promotion used by the Seller in the Market.</value>
+  </data>
+  <data name="fifteen" xml:space="preserve">
+    <value>&lt;span&gt;15.Privacy Policy and Use of Information&lt;/span&gt;  &lt;br /&gt;
+a) PlayPoint will use the information and documents sent / shared by Members only for verification, customer profile identification and statistical surveys. &lt;br /&gt; 
+b) Only PlayPoint campaign and other content will be sent to the phone number specified during the membership check. A member can delete it if he wants. &lt;br /&gt; 
+c) The information and documents sent are not shared with third parties. &lt;br /&gt; 
+If the information is required only by official bodies such as the Prosecutor's Office, Police, Tax Officer, all information and documents registered in your account are shared with the official body. &lt;br /&gt; 
+d) The membership information and personal information you provide to PlayPoint will not be disclosed to other members or third parties without your consent, except as provided in this Agreement. &lt;br /&gt; 
+e) If a member openly shares the situation on PlayPoint on various channels to tarnish and / or complain, PlayPoint reserves the right to disclose its balance and / or other personal information related to the subject. The member agrees and undertakes this. &lt;br /&gt; 
+f) PlayPoint reserves the right to send advertisements to its Members for the games it sells. Members are considered to have accepted and accepted the announcements. &lt;br /&gt; 
+g) According to these principles, your personal rights are guaranteed by PlayPoint.</value>
+  </data>
+  <data name="five" xml:space="preserve">
+    <value>&lt;span&gt;5.Opening of the store and working conditions&lt;/span&gt; &lt;br /&gt;
+a) A Member wishing to open a store must verify his / her information with the PlayPoint Identification System (Article 7) &lt;br /&gt; 
+b) In order to act as a store, a Member must be sane. &lt;br /&gt; 
+c) When adding advertising to the market, the seller must provide full information about the goods or services he sells. Any information that may be considered defective in the eyes of the buyer of the goods or services must be clearly indicated in the advertisement. PlayPoint is not responsible for complaints that occur during the cancellation of orders due to incomplete information provided in the advertisement. &lt;br /&gt; 
+d) The Seller acknowledges and assumes that it will not add prohibited advertisements when adding advertisements and that it is responsible for any adverse effects that may result from these prohibited advertisements. PlayPoint reserves the right to change banned ads at any time. &lt;br /&gt; 
+e) The Seller knows that the commission, which varies according to the category of goods or services and the Seller's account, will be charged by PlayPoint for all advertising fees for the goods or services. &lt;br /&gt; 
+f) The Seller knows that it is fully responsible for the delivery of goods or services made through PlayPoint without making any purchases. &lt;br /&gt; 
+g) The Seller knows that after each successful sale, he will earn both Successful Sales Points and Unsuccessful Sales Points. &lt;br /&gt; 
+g.1) PlayPoint reserves the right to reduce the number of successful outlets and add failed outlets due to problems that may occur after successful outlets have been acquired.</value>
+  </data>
+  <data name="four" xml:space="preserve">
+    <value>&lt;span&gt;4.Player market&lt;/span&gt;  &lt;br /&gt;
+a) The Seller who sells the advertisement in the market must contact the buyer no later than two hours after the start time indicated in the advertisement and start operating. &lt;br /&gt; 
+b) The validity periods of advertisements in the market may vary according to the categories of advertisements. Ads that are not updated within the period specified in the placement rules for the category will be removed from broadcast by PlayPoint. &lt;br /&gt; 
+c) PlayPoint does not control the accuracy of the information in the ads in the Market and the Seller is fully responsible for the accuracy of this information. Any complaints that may arise from information differences will be resolved by the seller until the purchase is complete. &lt;br /&gt; 
+d) PlayPoint guarantees payment and delivery between Buyer and Seller. Provides the price paid by the buyer at the time of purchase and sale, and the seller is responsible for transferring this amount to the seller after delivery of goods or services. &lt;br /&gt; 
+d.1) PlayPoint is not responsible for any problems that may arise between the Buyer and the Seller after the purchase is completed. &lt;br /&gt; 
+d.2) In the event of a dispute between the buyer and the seller, PlayPoint reserves the right to block the price of the product and / or service in a secure account until the parties agree or comply with court / arbitration rules. &lt;br /&gt; 
+d.3) Payment remains secure until the buyer fully accepts and provides the service or product, which can last up to 48 hours after delivery. &lt;br /&gt; 
+e) The Seller reserves the right to submit a list of products and / or services on the Site and to sell the listed products and / or services from the moment the declaration of ownership is attached. &lt;br /&gt; 
+f) The Seller shall be directly liable, without limitation, for any unlawful withdrawal of the Products from the Buyer, any damage to the Buyer, unjust gain and any circumstances that sacrifice the Buyer. He acknowledges, declares and undertakes that he has the warranty and accuracy of the Products he sells, otherwise he will have to pay compensation in the amount of USD 5,000 (USD 5,000). &lt;br /&gt; 
+g) If the Buyer and the Seller in contact in the market decide to complete the transaction without making a purchase through PlayPoint, the Buyer and the Seller are responsible for all possible complaints. In this case, all parties agree in advance that PlayPoint is not responsible and undertakes to do so. &lt;br /&gt; 
+h) PlayPoint does not in any way act as an intermediary in the Trade of Goods or Services in the Market.</value>
+  </data>
+  <data name="fourteen" xml:space="preserve">
+    <value>&lt;span&gt;14.Lottery and Promo Codes&lt;/span&gt;  &lt;br /&gt;
+a) PlayPoint reserves the right to restrict the use of promo codes, set expiration dates and determine how much can be used for the user in accordance with the digital balance distributed for free for a certain period of time. &lt;br /&gt; 
+b) In lotteries held on PlayPoint and other platforms, the Promotion Code is delivered at the current book value corresponding to the goods or services. &lt;br /&gt; 
+c) To use the promo code, Members are required to make the necessary confirmations that PlayPoint sees on their profiles. &lt;br /&gt; 
+d) All users participating in the PlayPoint Lottery agree and agree that their information may be partially and / or fully shared by PlayPoint for the purpose of announcing winners and / or similar purposes. &lt;br /&gt; 
+e) PlayPoint reserves the right to change the date of announcement of all lottery results and / or cancel the lottery.</value>
+  </data>
+  <data name="nine" xml:space="preserve">
+    <value>&lt;span&gt;9.Conditions of expenses and profit&lt;/span&gt;  &lt;br /&gt;
+a) Members are required to submit documents through PlayPoint Identity (Article 7) in order to spend their earnings within the site. These unconditional members will not be able to receive any goods or services from the Site with their Earnings. &lt;br /&gt; 
+b) PlayPoint only pays the balance corresponding to the income to the bank accounts that can be registered in the PlayPoint system. &lt;br /&gt; 
+c) The Member agrees and undertakes to provide accurate and complete details of the account to which the payment will be sent. PlayPoint is not responsible for any financial losses or delays that may occur due to incomplete or incorrect information. &lt;br /&gt; 
+d) Members will only be able to withdraw payments from their bank accounts for security reasons. &lt;br /&gt; 
+e) PlayPoint may block the Seller's income and check the Seller's account at points it deems necessary. The block can last a maximum of one week. PlayPoint reserves the right to extend this period and continue reviewing.</value>
+  </data>
+  <data name="nineteen" xml:space="preserve">
+    <value>&lt;span&gt;19. Adverse events due to the composition&lt;/span&gt;  &lt;br /&gt;
+Some of the content on the website is suitable for users over 18 years of age. Playpoint is not responsible for any adverse effects. The member accepts that he has read and understood.</value>
+  </data>
+  <data name="one" xml:space="preserve">
+    <value>&lt;span&gt;1.Parties&lt;/span&gt; &lt;br /&gt;
+The PlayPoint User Agreement referred to in this Agreement (hereinafter referred to as the "Agreement") is concluded between PlayPoint and the User who is a member of the Site, for the User to become a member of the Site and after the agreement is approved by the User in the electronic environment. By registering on the Site, the Member accepts, declares and undertakes that he / she has read the Agreement in full, fully understands its content and approves all its provisions.
+PlayPoint: Elvin Ismayilov, an individual representing the domain name Playpoint.store.
+Member: An individual or legal entity that creates a PlayPoint membership.</value>
+  </data>
+  <data name="parts" xml:space="preserve">
+    <value>&lt;span&gt;1.&lt;/span&gt; Parties
+&lt;span&gt;2.&lt;/span&gt; Definitions
+&lt;span&gt;3.&lt;/span&gt; Subject and scope of the contract
+&lt;span&gt;4.&lt;/span&gt; Player market
+&lt;span&gt;5.&lt;/span&gt; Opening and operating conditions of the store
+&lt;span&gt;6.&lt;/span&gt; Messaging Terms
+&lt;span&gt;7.&lt;/span&gt; PlayPoint Identification
+&lt;span&gt;8.&lt;/span&gt; Balance Loading and Expense Terms
+&lt;span&gt;9.&lt;/span&gt; Terms of Expenditure and Withdrawal of Earnings
+&lt;span&gt;10.&lt;/span&gt; Refund
+&lt;span&gt;11.&lt;/span&gt; Terms of return and cancellation of goods or services
+&lt;span&gt;12.&lt;/span&gt; Rules of conduct
+&lt;span&gt;13.&lt;/span&gt; Rules of exchange of ideas
+&lt;span&gt;14.&lt;/span&gt; Lottery and Promo Codes
+&lt;span&gt;15.&lt;/span&gt; Privacy Policy and Use of Information
+&lt;span&gt;16.&lt;/span&gt; Cookie Policy
+&lt;span&gt;17.&lt;/span&gt; Limitation of Liability
+&lt;span&gt;18.&lt;/span&gt; PlayPoint profiles
+&lt;span&gt;19.&lt;/span&gt; Adverse events due to the composition
+&lt;span&gt;20.&lt;/span&gt; Termination of the contract</value>
+  </data>
+  <data name="seven" xml:space="preserve">
+    <value>&lt;span&gt;7.PlayPoint Identification&lt;/span&gt;  &lt;br /&gt;
+a) Members know that in order to use some PlayPoint services, they must prove their identities. &lt;br /&gt; 
+b) The Member knows that only documents submitted through PlayPoint's own authentication system will be accepted and no documents submitted through different channels will be accepted.
+c) The documents submitted by the Member must include: &lt;br /&gt; 
+c.1) Member himself. &lt;br /&gt; 
+c.2) Member's ID card, driver's license or passport. &lt;br /&gt; 
+c.3) playpoint.store and paper with the date of sending the document.</value>
+  </data>
+  <data name="seventeen" xml:space="preserve">
+    <value>&lt;span&gt;17.Limitation of Liability&lt;/span&gt;  &lt;br /&gt;
+a) All content and images in the advertisements attached to the Player Market belong to PlayPoint from the moment of download, and PlayPoint reserves the right to use / use these content and images as it wishes. &lt;br /&gt; 
+b) PlayPoint, which is not a party to the sales transaction, provides the PlayPoint trust system to the buyer and seller during the payment phase of the purchase and sale process. Non-receipt of the price in exchange for delivery of the goods to the seller; This is to protect the buyer from the risk of not delivering the goods in full or in any quality and conditions for a fee. &lt;br /&gt; 
+c) The Seller who shares the information is fully responsible for the goods or services delivered without any purchase within or outside PlayPoint. &lt;br /&gt; 
+d) PlayPoint offers members the opportunity to take various security measures to protect their accounts. Whether or not to take advantage of these opportunities is a Member's own initiative. For this reason, PlayPoint is not responsible for any negligence that may result from member negligence, account theft, or any unauthorized action. &lt;br /&gt; 
+e) In all cases where legally considered force majeure, PlayPoint shall not be liable for any delay, incomplete performance or non-performance of its obligations under this Agreement. These and similar circumstances will not be considered a delay, incomplete performance or malfunction or default for PlayPoint, or no compensation will be required from PlayPoint under any name. Prevention of natural disasters, riots, wars, strikes, communication problems, infrastructure and Internet failures, power outages and bad weather, as well as the term "force majeure" beyond the reasonable control of the party concerned. . despite the necessary efforts, it will be interpreted as unavoidable events. &lt;br /&gt; 
+f) PlayPoint may, at its sole discretion and unilaterally, place it on PlayPoint and change it at any time it deems appropriate under this Agreement. The amended provisions of this Agreement shall enter into force on the date of its publication; The remaining provisions will remain in force and will have their own provisions and consequences. This Agreement may not be modified by unilateral statements of the Member. &lt;br /&gt; 
+g) The legislation of Azerbaijan shall apply to the implementation, interpretation and management of legal relations arising from the provisions of this Agreement. The Courts and Enforcement Offices of Azerbaijan have the power to resolve any dispute arising out of or in connection with this Agreement.</value>
+  </data>
+  <data name="six" xml:space="preserve">
+    <value>&lt;span&gt;6.Messaging Terms&lt;/span&gt; &lt;br /&gt;
+a) Members know that they are responsible for all content they write to other Members in the instant messaging system. &lt;br /&gt; 
+b) PlayPoint has limited the number of messages that Members can send one after the other to prevent spam in the instant messaging system. A member who reaches this level knows that he will not be able to send a new message until he receives a response from the other party. &lt;br /&gt; 
+c) Members are responsible for the telephone, email, address and all similar personal information they provide to other Members through the messaging system. &lt;br /&gt; 
+d) All Members who send messages agree and agree that their messages will not be deleted, and PlayPoint may periodically back up these messages. &lt;br /&gt; 
+e) If a Member provides false or / or incomplete information to other Members in order to gain an unfair advantage in messaging, he undertakes to be liable for all losses and to compensate the injured Member for damages. He must pay all the losses. &lt;br /&gt; 
+f) The Member agrees to and undertakes not to use the name of any commercial or non-commercial site anywhere in its interactions with the messaging system and / or other members, and if it does so, its messaging may be blocked. Temporary or indefinite period. &lt;br /&gt; 
+g) PlayPoint reserves the right, if necessary, to temporarily or indefinitely restrict all rights of a Member to communicate with other Members.</value>
+  </data>
+  <data name="sixteen" xml:space="preserve">
+    <value>&lt;span&gt;16.Cookie Policy&lt;/span&gt;  &lt;br /&gt;
+a) Your privacy is important to us, your privacy and security rights are our main principle. To protect your personal information, we have taken the necessary steps to keep the PlayPoint system and internet infrastructure at the most secure level. &lt;br /&gt; 
+b) You can meet your needs by getting information about products and services in PlayPoint without giving any information. &lt;br /&gt; 
+c) There are two types of cookies according to their validity period, Temporary and Permanent cookies. These cookies are small files sent to your computer through the browser you use, and are guaranteed to be accessible when you sign in to PlayPoint. This has no effect on your computer. Cookies do not collect any information, including personal information stored on your computer or files. &lt;br /&gt; 
+d) Temporary and Permanent cookies stored in your browser are used to organize the site according to your interests and preferences to have a positive impact on your visit experience. &lt;br /&gt; 
+e) Almost all internet browsers are predefined to automatically accept cookies. However, you can manage or delete cookies as you wish. Because cookie management varies from browser to browser, you can refer to the browser's help menu for details. &lt;br /&gt; 
+f) You can delete cookies completely at any time, but deleting them will negatively affect your choices in PlayPoint and may restrict your use of all services. &lt;br /&gt;</value>
+  </data>
+  <data name="ten" xml:space="preserve">
+    <value>&lt;span&gt;10.Refund&lt;/span&gt;  &lt;br /&gt;
+a) If PlayPoint fails to provide the goods or services you wish, if the Member requests a refund, PlayPoint is obliged to refund the fee corresponding to the balance (10.e) within the period specified in 10.e. &lt;br /&gt; 
+b) If the content required by the Member is sold in the Player Market or if the Member Market cancels the order for various reasons, PlayPoint is obliged to return the fee corresponding to the balance.
+The fact that the content equivalent to the goods or services requested by the Member in order to fulfill the return conditions is not available in the PlayPoint or Player market is checked by PlayPoint and the decision is made by PlayPoint. &lt;br /&gt; 
+c) The Member accepts that PlayPoint membership fees not reflected in the membership balance will be processed by the Payment Instrument Company used at the time of payment. Therefore, at this stage, the Payment Agent will contact the company to accept the refund and undertake to send. &lt;br /&gt; 
+d) The Member is aware that the full amount of the payment to be refunded must remain unused on the Member's balance sheet and is aware that the payments will not be partially refunded. &lt;br /&gt; 
+e) Refunds start within 5 business days. PlayPoint Payment Tool is not responsible for any delays in the completion of the refund by the Company or the Bank.</value>
+  </data>
+  <data name="thirteen" xml:space="preserve">
+    <value>&lt;span&gt;13.Rules of exchange of ideas&lt;/span&gt; &lt;br /&gt;
+a) Ideas shared intentionally or unintentionally belong to PlayPoint. &lt;br /&gt; 
+b) PlayPoint is a constantly evolving and regulated system. Ideas and developments created intentionally or unintentionally by members may be premeditated or planned, so when members share ideas, they share and agree that they cannot claim any rights to those ideas. &lt;br /&gt; 
+c) There is no reward for the results of intellectual sharing, but PlayPoint takes the initiative to do so.</value>
+  </data>
+  <data name="three" xml:space="preserve">
+    <value>&lt;span&gt;3.Subject and scope of the contract&lt;/span&gt; &lt;br /&gt;
+The subject of the User Agreement is to determine the Services offered on the Site, the terms of use of these Services and the rights and obligations of the parties.
+The scope of this agreement includes all expressions, texts and explanations made by PlayPoint regarding the use, membership and Services included in this Agreement and its Annexes. By accepting the terms of the Agreement, the User also accepts all statements made by PlayPoint regarding the use, membership and Services on the Site. The User agrees, declares and undertakes to act in accordance with all matters set forth in the above statements.</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>&lt;span&gt;Play Point&lt;/span&gt; User Agreement</value>
+  </data>
+  <data name="title2" xml:space="preserve">
+    <value>This agreement contains the necessary rules for you to use the services on our site. &lt;br /&gt;
+AS A MEMBER OF OUR WEBSITE, CONFIRMS THAT YOU HAVE READ THE ALL CONTRACT, UNDERSTAND THE CONTENT, AND READ AND AGREE WITH THEIR TERMS.</value>
+  </data>
+  <data name="twelve" xml:space="preserve">
+    <value>&lt;span&gt;12.Rules of conduct&lt;/span&gt;  &lt;br /&gt;
+If members publish offensive social content based on social class, race, religion, sect, gender, or region in conversations with each other through PlayPoint and / or Live Support, PlayPoint members will be notified in advance of access to the messaging system. and / or Live Support reserves the right to be restricted for an indefinite or indefinite period without any need.</value>
+  </data>
+  <data name="twenty" xml:space="preserve">
+    <value>&lt;span&gt;20.Dictionary of the contract&lt;/span&gt; &lt;br /&gt;
+a) This Agreement shall remain in force as a Member and shall remain between its provisions and its consequences. If a user's network or data is permanently blocked, it will not be considered connected. &lt;br /&gt; 
+b) In the event that the Members violate this Agreement and / or the rules of use of the Site, enterprises and services. The person in charge.</value>
+  </data>
+  <data name="two" xml:space="preserve">
+    <value>&lt;span&gt;2.Definitions&lt;/span&gt;  &lt;br /&gt;
+Market: PlayPoint is a "Player Market" section where members can shop between themselves.
+Payment Tool: An intermediary company used to load money on the balance and send payments.
+Earnings: The total balance amount received in exchange for the sale of goods or services to PlayPoint or its Members.
+Seller: An individual or legal entity that adds any advertising to the market for the purpose of sale.
+Buyer: Member who buys any goods or services in the market.</value>
+  </data>
+</root>

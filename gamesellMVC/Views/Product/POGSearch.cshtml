@@ -1,0 +1,163 @@
+﻿@model Product_of_GamerListViewModel
+
+
+@if (Model.IPs.Count() > 0)
+{
+    @foreach (var q in Model.IPs.Where(i => i.Product))
+    {
+        <div class="backtop-info"
+             style="background-image: url(/img/instructionpanel/@q.Img);">
+            <div class="backtop-info-left">
+                <!-- <h4>Elden Ring</h4> -->
+                <img src="/img/instructionpanel/@q.ImgTitle" alt="">
+                <p>
+                    @q.Text
+                </p>
+            </div>
+        </div>
+        break;
+    }
+}
+else
+{
+    <div class="backtop-info"
+         style="background-image: url(/images/god-of-war-pubblicati-concept-art-gioco-v3-303302-1280x720.jpg);">
+        <div class="backtop-info-left">
+            <!-- <h4>Elden Ring</h4> -->
+            <img src="/images/god_of_war_title.png" alt="">
+            <p>
+                Olimpos Tanrılarından aldığı intikamın üzerinden yıllar geçen Kratos, artık İskandinav Tanrılarının ve
+                canavarlarının diyarında sıradan bir insan olarak yaşıyor. Bu sert ve acımasız dünyada hayatta
+                kalabilmek için savaşmak ve oğluna da aynısını öğretmek zorunda.
+            </p>
+        </div>
+    </div>
+}
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+
+<div class="gamer-shop-container">
+    <div class="gsc-left">
+        <div class="gsc-left-content">
+            <form asp-controller="Product" asp-action="POGSearch" method="post">
+                <div class="gsc-left-sections gsc-search-content">
+                    <input class="gsc-input" name="q" placeholder="Seach some names" type="text">
+                </div>
+                <div class="gsc-left-sections gsc-category">
+                    <select class="gsc-input gsc-selectbox" name="gnId" id="gnId">
+                        <option value="0" selected>All</option>
+                        @foreach (var g in Model.Gns)
+                        {
+                            <option value="@g.Id">@g.GameOfName</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="gsc-left-sections gsc-category">
+                    <select @*asp-for="@Model.POGModel.GameItemID"*@ name="giId" id="giId" class="gsc-input gsc-selectbox">
+                        <option value="0" selected>All</option>
+                    </select>
+                </div>
+
+                <div class="gsc-left-sections gsc-price">
+                    <input class="gsc-input gsc-price-low" placeholder="min" type="text" name="minValue">
+                    <input class="gsc-input gsc-price-high" placeholder="max" type="text" name="maxValue">
+                </div>
+                <div class="gsc-left-sections gsc-category">
+                    <select name="order" id="" class="gsc-input gsc-selectbox">
+                        <option value="1">Relevance</option>
+                        <option value="2">Lowes price</option>
+                        <option value="3">Highest price</option>
+                        <option value="4">Old to new</option>
+                        <option value="5">New to old</option>
+                    </select>
+                </div>
+                <button class="pp_button gsc-left-search-btn">search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="gsc-right">
+
+        <div class="listed-game-editor">
+            <div class="lge-left">
+                <a href="/account/create/pog" class="lge-new-sell"><i class="las la-plus-square"></i> Sell something</a>
+            </div>
+        </div>
+
+        <div class="listed-games-content">
+
+            <div class="listed-games-items-content">
+                @foreach (var p in Model.Pogs)
+                {
+                    <a href="/product/pog/details/@p.Id">
+                        <div class="listed-content-item">
+                            <img src="/img/pog/@p.Slider_img1" alt="">
+
+                            <div class="listed-content-item-info">
+                                @foreach (var g in Model.Gns)
+                                {
+                                    if (p.GameNameID == g.Id)
+                                    {
+                                        <h3 class="product-name">@g.GameOfName</h3>
+                                    }
+                                }
+                                <h4 class="product-offer-name">Telltale Games studio</h4> @* ??? *@
+                                <h4 class="product-price">
+                                    @if (User.Identity.IsAuthenticated == false)
+                                    {
+                                        double a = 0;
+                                        @foreach (var q in Model.Curs)
+                                        {
+                                            if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                            {
+                                                @(a = Math.Round(p.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @foreach (var q in Model.Curs)
+                                        {
+                                            double a = 0;
+                                            if (q.Id == Model.Cur)
+                                            {
+                                                @(a = Math.Round(p.Price * q.CurrencyConst, 2)) <span>@q.CurrencyIcon</span>
+                                            }
+                                        }
+                                    }
+                                </h4>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+
+            <div class="listed-more-center">
+                <div class="pp-pagination">
+                    <a href="" class="pagination-link pagination-link-long"><i class="las la-angle-left"></i></a>
+                    <a href="" class="pagination-link">1</a>
+                    <a href="" class="pagination-link">2</a>
+                    <a href="" class="pagination-link">3</a>
+                    <a href="" class="pagination-link">4</a>
+                    <a href="" class="pagination-link">...</a>
+                    <a href="" class="pagination-link pagination-link-long"><i class="las la-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="~/static/js/getgameitem.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

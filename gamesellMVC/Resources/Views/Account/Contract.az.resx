@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="eight" xml:space="preserve">
+    <value>&lt;span&gt;8.Balans Yükləmə və Xərc Şərtləri&lt;/span&gt;  &lt;br /&gt;
+a) Üzvlər bilirlər ki, kartsız əməliyyatlar və ya internet bankçılıq vasitəsilə bankomatlardan göndərilən ödənişlər üçün bildirişlər edilməlidir. Üzv bildirişsiz ödənişin onun hesabına köçürülməyəcəyini bilir. PlayPoint bu səbəbdən yarana biləcək hər hansı şikayətlərə görə məsuliyyət daşıya bilməz. &lt;br /&gt; 
+b) Üzv tərəfindən qoyulan və bildirilən ödənişlər onun hesabında rəqəmsal balans kimi görünür və Üzv istədiyi vaxt istədiyi qədər xərcləyib saxlaya bilər. Balans olaraq əlavə edilən ödəniş heç bir xərc və ya satış olmadan zamanla avtomatik artmır və ya azalmır. &lt;br /&gt; 
+c) Ödəniş Vasitəçi firma Üzvlərin balans yükləmə əməliyyatları zamanı istifadə olunur və GameSatis bu yükləmələr zamanı baş verə biləcək gecikmələrdən yarana biləcək hər hansı maddi və ya digər zərərlərə görə məsuliyyət daşımır. &lt;br /&gt; 
+d) Real pul müqabilində rəqəmsal balansın əlavə edilməsi nəticəsində PlayPoint, zəruri hallarda təhlükəsizlik məqsədləri üçün əlavə məlumat və sənədlər tələb etmək hüququnu özündə saxlayır. Bu məlumat və sənədlər Şəxsiyyət Doğrulama Sistemində (maddə 7) göstərildiyi kimi əldə edilir və yalnız Məxfilik Siyasəti və Məlumat İstifadəsi şərtlərinə uyğun olaraq istifadə edilə bilər (Maddə 15). &lt;br /&gt; 
+e) Üzvün hesabına əlavə edilən rəqəmsal balans Azərbaycan Manatı (AZN) ilə alınır. Xarici valyutada olan hesablardan kartla ödənişlər üçün Üzvün hesabından çıxarılan xarici valyutanın məbləği ödəniş etdiyiniz bankın cari məzənnəsinə uyğun olaraq bank tərəfindən müəyyən edilir. PlayPoint bu cür ödənişlərdə bankınız tərəfindən tətbiq olunacaq komissiya və digər əməliyyat haqlarına görə məsuliyyət daşımır. &lt;br /&gt; 
+f) Üzv, yalnız sayt daxilində alış-veriş üçün ödənilən məbləğə uyğun rəqəmsal balansdan istifadə edə biləcəyini və bu balansı qismən və/və ya tamamilə öz bank hesabına çıxara bilməyəcəyini qəbul edir və öhdəsinə götürür.</value>
+  </data>
+  <data name="eighteen" xml:space="preserve">
+    <value>&lt;span&gt;18.PlayPoint’ə məxsus profillər&lt;/span&gt;  &lt;br /&gt;
+PlayPoint’in satdığı profillər tamamile PlayPoint’ə aiddir , satıla və yaxud verilə bilməz. Əks təqdirdə Bu profilləri satan və ya başqa birisinə verən üzv 1000 ABŞ dolları (Bir Min ABŞ Dolları) məbləğində təzminat ödəməyə borclu olacaq.
+Üzv PlayPoint’den satın alınaraq kitabxanaya əlavə olunan oyun profilləri üzərində sadəcə profilə daxil olaraq oyunu oynama hüququna malikdir.Kitabxanasında olan oyunları hər hansı bir yerdə başqalarına verə bilməz , sata bilməz və yaxud nəsə bir şey qarşılığında dəyişdirilə(trade) bilməz. Üzvlər bunu qəbul etmiş və öhdəlik götürmüş hesab olunurlar.</value>
+  </data>
+  <data name="eleven" xml:space="preserve">
+    <value>&lt;span&gt;11.Malların və ya xidmətlərin geri qaytarılması və ləğvi şərtləri&lt;/span&gt;  &lt;br /&gt; 
+a) Mallar və ya xidmətlər qüsurlu, istifadə edilmiş və ya işləmədiyi halda, mümkün olduqda mal və ya xidmətlər geri qaytarılır. Digər ödənişlər, mübadilələr və ya ləğvlər PlayPoint-in ixtiyarındadır. &lt;br /&gt; 
+b) Satıcı, Bazarda satılan, lakin müəyyən edilmiş müddətlərdə çatdırılmaya başlamayan və ya alıcının bəyənməməsinə baxmayaraq təxirə salınan əməliyyatların xəbərdarlığa ehtiyac olmadan ləğv ediləcəyini qəbul edir və öhdəsinə götürür. &lt;br /&gt; 
+c) Bazarda satılan mal və ya xidmətlərin reklamda göstərilən spesifikasiyalara uyğun gəlmədiyi halda, PlayPoint, alıcının tələbi ilə satıcı ilə əlaqə saxlamağa və sifarişin ləğvi prosesini idarə etməyə borcludur. &lt;br /&gt; 
+d) Satıcının Bazarda istifadə etdiyi reklam təşviqi kimi sərfəli xidmətləri ləğv etmək və ya geri qaytarmaq mümkün deyil.</value>
+  </data>
+  <data name="fifteen" xml:space="preserve">
+    <value>&lt;span&gt;15.Məxfilik Siyasəti və Məlumat İstifadəsi&lt;/span&gt;  &lt;br /&gt;
+a) PlayPoint Üzvlər tərəfindən göndərilən/paylaşılan məlumat və sənədlərdən yalnız yoxlama, müştəri profilinin müəyyən edilməsi və statistik tədqiqatlar üçün istifadə edəcək. &lt;br /&gt; b) Üzvlük yoxlanışı zamanı göstərilən telefon nömrəsinə yalnız PlayPoint adı altında kampaniya və digər məzmun göndəriləcək. Üzv istəsə onu silə bilər.&lt;br /&gt;
+c) Göndərilən məlumat və sənədlər üçüncü şəxslərlə paylaşılmır.
+Yalnız Prokurorluq, Polis, Vergi məmuru kimi rəsmi orqanlar tərəfindən məlumat tələb olunarsa, hesabınızda qeydiyyatda olan bütün məlumat və sənədlər rəsmi orqanın özü ilə paylaşılır.
+ &lt;br /&gt; 
+d) PlayPoint-ə təqdim etdiyiniz üzvlük məlumatı və şəxsi məlumat sizin razılığınız olmadan, Müqavilədə müəyyən edilən hallar istisna olmaqla, digər üzvlərə və üçüncü tərəflərə açıqlanmayacaq. &lt;br /&gt; 
+e) Üzv saytı ləkələmək və/və ya şikayətini bildirmək üçün PlayPoint-də yaşanan vəziyyətləri müxtəlif kanallarda açıq şəkildə paylaşarsa, PlayPoint-in mövzu ilə bağlı balansı və/və ya digər şəxsi məlumatları açıq şəkildə nümayiş etdirmək səlahiyyəti vardır. Sözügedən üzv buna icazə verdiyini qəbul edir və öhdəsinə götürür. &lt;br /&gt; 
+f) PlayPoint satdığı oyunlara aid reklamları Üzvlərinə göndərmək hüququnu özündə saxlayır. Üzvlər elanları qəbul etmiş və almağa öhdəlik götürmüş hesab olunurlar. &lt;br /&gt; 
+g) Bu prinsiplərlə sizin şəxsi hüquqlarınız PlayPoint tərəfindən təmin edilir.</value>
+  </data>
+  <data name="five" xml:space="preserve">
+    <value>&lt;span&gt;5.Mağazanın açılışı və fəaliyyət şərtləri&lt;/span&gt; &lt;br /&gt;
+a) Mağaza açmaq istəyən Üzv öz məlumatlarını PlayPoint Şəxsiyyət təsdiqləmə sistemi (maddə 7) ilə öz məlumatlarını təsdiqləməlidir &lt;br /&gt; 
+b) Mağaza kimi fəaliyyət göstərmək üçün Üzv sağlam düşüncəli olmalıdır. &lt;br /&gt; 
+c) Satıcı bazara reklam əlavə edərkən satdığı mal və ya xidmətlərin məlumatını tam şəkildə göstərməlidir. Mal və ya xidmətlərin alıcısının nəzərində qüsur sayıla biləcək hər hansı məlumat reklamda aydın şəkildə göstərilməlidir. PlayPoint reklamda verilən natamam məlumatlara görə sifarişlərin ləğvi zamanı yaranan şikayətlərə görə məsuliyyət daşımır. &lt;br /&gt; 
+d) Satıcı reklamları əlavə edərkən qadağan olunmuş reklamları əlavə etməyəcəyini və bu qadağan olunmuş reklamlardan yarana biləcək mənfi təsirlərə görə məsuliyyətin ona aid olduğunu qəbul və öhdəsinə götürür. PlayPoint istənilən vaxt qadağan olunmuş reklamları dəyişdirmək hüququnu özündə saxlayır. &lt;br /&gt; 
+e) Satıcı bilir ki, mal və ya xidmətlərin kateqoriyasına və Satıcının hesabına görə dəyişən komissiya məbləği PlayPoint tərəfindən mal və ya xidmətlər üçün bütün reklam haqları üçün tutulacaq. &lt;br /&gt; 
+f) Satıcı,PlayPoint üzərindən hər hansı satın alım olmadan edilən mal və ya xidmət çatdırılması üçün tam məsuliyyət daşıdığını bilir. &lt;br /&gt; 
+g) Satıcı bilir ki, hər bir uğurlu satış əməliyyatından sonra Uğurlu Satış xalları, eləcə də uğursuz satış xalları qazanacaq. &lt;br /&gt; 
+g.1) PlayPoint əldə edilən uğurlu satış əməliyyatı xallarından sonra yaşanacaq problemlərə görə uğurlu satış xallarını azaltmaq və uğursuz satış nöqtələrini əlavə etmək hüququnu özündə saxlayır.</value>
+  </data>
+  <data name="four" xml:space="preserve">
+    <value>&lt;span&gt;4.Oyunçu bazarı&lt;/span&gt;  &lt;br /&gt;
+a) Reklamı bazarda satılan Satıcı, elanda göstərilən başlama saatından ən geci iki saat ərzində alıcı ilə əlaqə saxlamalı və əməliyyatlara başlamalıdır.  &lt;br /&gt; 
+b) Bazarda olan reklamların etibarlılıq müddətləri reklam kateqoriyalarına görə dəyişə bilər. Kateqoriyaya görə yerləşdirmə qaydalarında müəyyən edilmiş müddətlərdə yenilənməmiş reklamlar PlayPoint tərəfindən yayımdan silinəcək. &lt;br /&gt; 
+c)Marketdə açılan elanlardakı məlumatların düzgünlüyünə PlayPoint tərəfindən nəzarət edilmir və Satıcı bu məlumatların düzgünlüyünə görə tam məsuliyyət daşıyır. Alış-veriş tamamlanana qədər məlumat fərqlərindən yarana biləcək hər hansı şikayətlər satıcı tərəfindən qarşılanacaq. &lt;br /&gt; 
+d) PlayPoint Alıcı və Satıcı arasında ödəniş və çatdırılma zəmanətini təmin edir. Alış-veriş zamanı alıcının ödədiyi qiyməti təmin edir və satıcı mal və ya xidmətləri çatdırdıqdan sonra bu məbləğin satıcıya köçürülməsinə cavabdehdir. &lt;br /&gt; 
+d.1) PlayPoint, alış-veriş başa çatdıqdan sonra Alıcı və Satıcı arasında yarana biləcək hər hansı problemə  görə məsuliyyət daşımır. &lt;br /&gt; 
+d.2) Alıcı ilə satıcı arasında mübahisə yaranarsa, PlayPoint məhsulun və/və ya xidmətin qiymətini tərəflər razılığa gələnə qədər və ya məhkəmə/arbitraj məhkəməsinin qərarı çıxana qədər təhlükəsiz hesabda bloklamaq hüququna malikdir. &lt;br /&gt; 
+d.3) Alıcı xidmət və ya məhsulu tam şəkildə alana və təmin edənə qədər ödəniş təhlükəsiz olaraq qalır, bu da çatdırılma başa çatdıqdan sonra 48 saata qədər uzana bilər. &lt;br /&gt; 
+e) Satıcı, sadalanan məhsulların və/və ya xidmətlərin mülkiyyət hüququna malik olması barədə elanı əlavə etdiyi andan etibarən saytda məhsulların və/və ya xidmətlərin siyahısını təqdim etmək və onları satışa təqdim etmək səlahiyyətinə malik olduğunu bildirmiş hesab edilir.  &lt;br /&gt; 
+f) Satıcı Məhsulların Alıcıdan qanunsuz geri alınması, Alıcıya dəyən zərər, haqsız qazanc və Alıcını qurbana çevirən bütün hallara görə, bunlarla məhdudlaşmadan birbaşa məsuliyyət daşıyır. O, satdığı Məhsulların zəmanətinə və düzgünlüyünə malik olduğunu qəbul edir, bəyan edir və öhdəsinə götürür, əks halda 5000 ABŞ dolları (Beş Min ABŞ Dolları) məbləğində təzminat ödəməyə borclu olacaq. &lt;br /&gt; 
+g) Bazarda əlaqə saxlayan Alıcı və Satıcı PlayPoint üzərindən alış-veriş etmədən əməliyyatları tamamlamağa qərar verərsə, Alıcı və Satıcı baş verə biləcək bütün şikayətlərə görə məsuliyyət daşıyır. Bu halda bütün tərəflər PlayPoint-in heç bir məsuliyyət daşımadığını əvvəlcədən qəbul edir və öhdəsinə götürür. &lt;br /&gt; 
+h) PlayPoint heç bir şəkildə Bazarda mal və ya xidmətlər üzrə Ticarət əməliyyatlarında vasitəçi kimi çıxış etmir.</value>
+  </data>
+  <data name="fourteen" xml:space="preserve">
+    <value>&lt;span&gt;14.Lotereya və Promo Kodlar&lt;/span&gt;  &lt;br /&gt;
+a) PlayPoint pulsuz payladığı rəqəmsal balansa uyğun gələn promosyon kodlarının istifadəsini müəyyən müddətə məhdudlaşdırmaq, son istifadə tarixlərini təyin etmək və istifadəçi üçün nə qədər istifadə oluna biləcəyini müəyyən etmək hüququnu özündə saxlayır. &lt;br /&gt;   b) PlayPoint və digər platformalarda keçirilən lotereyalarda Promosyon Kod mal və ya xidmətlərə uyğun cari balans dəyəri ilə çatdırılır. &lt;br /&gt;
+c) Promosyon kod’unun istifadə oluna bilməsi üçün Üzv’lər profillərindəki PlayPoint’in gərəkli gördüyü təsdiqləmələri etmək məcburiyyətindədirlər. &lt;br /&gt; 
+d) PlayPoint tərəfindən keçirilən lotereyada iştirak edən bütün istifadəçilər, onların məlumatlarının qaliblərin elan edilməsi və/və ya oxşar məqsədlər üçün PlayPoint tərəfindən qismən və/yaxud tam paylaşıla biləcəyi ilə razılaşır və öhdəliyini götürür. &lt;br /&gt; 
+e) PlayPoint bütün lotereya nəticələrin elan olunma tarixini dəyişdirmək və/yaxud lotereyanı ləğv etmək hüququnu özündə saxlayır.</value>
+  </data>
+  <data name="nine" xml:space="preserve">
+    <value>&lt;span&gt;9.Qazancın Xərclənməsi və Çıxarılması Şərtləri&lt;/span&gt;  &lt;br /&gt;
+a) Üzvlərdən qazandıqları Qazanclarla sayt daxilində xərcləmək üçün PlayPoint Şəxsiyyət Təsdiqlənməsi (maddə 7) vasitəsilə sənədləri göndərmələri tələb olunur. Bu şərti olmayan üzvlər Qazancları ilə saytdan heç bir mal və ya xidmət ala bilməzlər. &lt;br /&gt; 
+b) PlayPoint yalnız PlayPoint sistemində qeydiyyatdan keçə bilən bank hesablarına gəlirə uyğun balansı ödəyir. &lt;br /&gt; 
+c) Üzv ödənişin göndəriləcəyi hesabın məlumatlarını dəqiq və tam şəkildə qeyd etməyi qəbul edir və öhdəsinə götürür. PlayPoint natamam və ya yanlış məlumat səbəbindən yarana biləcək maliyyə itkiləri və ya gecikmələrə görə məsuliyyət daşımır. &lt;br /&gt; 
+d) Üzvlər yalnız təhlükəsizlik səbəbi ilə öz bank hesablarına ödəniş tələb edə biləcəklər. &lt;br /&gt; 
+e) PlayPoint zəruri hesab etdiyi nöqtələrdə Satıcının gəlirlərini bloklaya bilər və Satıcının hesabını yoxlaya bilər. Sözügedən blok maksimum bir həftə ola bilər. PlayPoint bu müddəti uzatmaq və nəzərdən keçirməyə davam etmək hüququnu özündə saxlayır.</value>
+  </data>
+  <data name="nineteen" xml:space="preserve">
+    <value>&lt;span&gt;19. Məzmuna əsasən yaşanacaq neqativ hallar&lt;/span&gt; &lt;br /&gt;
+Web səhifəsinin bəzi məzmunu 18 yaş üzəri istifadəçilər üçün uyğundur .Hər hansı neqativ təsirdə playpoint məsuliyyət daşımır.Üzv bunu oxuduğunu və anladiğını qəbul edir.</value>
+  </data>
+  <data name="one" xml:space="preserve">
+    <value>&lt;span&gt;1.Tərəflər&lt;/span&gt; &lt;br /&gt;
+Bu müqavilə ilə müqavilədə istinad edilən PlayPoint İstifadəçi Müqaviləsi (bundan sonra “Müqavilə” adlandırılacaq) , PlayPoint ilə Sayta üzv olan İstifadəçi arasinda , İstifadəçinin Sayta üzv olması üçün və müqavilə İstifadəçi tərəfindən təsdiq edildikdən sonra müvafiq Saytın yerləşdiyi elektron mühitdə bağlanır. Saytda qeydiyyatdan keçməklə Üzv Müqaviləni tam oxuduğunu, onun məzmununu tam başa düşdüyünü və onun bütün müddəalarını təsdiq etdiyini qəbul edir, bəyan edir və öhdəlik götürür.
+PlayPoint : Playpoint.store domen adını təmsil edən Elvin İsmayılov fiziki şəxs.
+Üzv: PlayPoint-də üzvlük yaradan fiziki və ya hüquqi şəxs.</value>
+  </data>
+  <data name="parts" xml:space="preserve">
+    <value>&lt;span&gt;1.&lt;/span&gt; Tərəflər
+&lt;span&gt;2.&lt;/span&gt; Təriflər
+&lt;span&gt;3.&lt;/span&gt; Müqavilənin mövzusu və əhatə dairəsi
+&lt;span&gt;4.&lt;/span&gt; Oyunçu bazarı
+&lt;span&gt;5.&lt;/span&gt; Mağazanın açılışı və fəaliyyət şərtləri
+&lt;span&gt;6.&lt;/span&gt; Mesajlaşma Şərtləri
+&lt;span&gt;7.&lt;/span&gt; PlayPoint Şəxsiyyət Təsdiqlənməsi
+&lt;span&gt;8.&lt;/span&gt; Balans Yükləmə və Xərc Şərtləri
+&lt;span&gt;9.&lt;/span&gt; Qazancın Xərclənməsi və Çıxarılması Şərtləri
+&lt;span&gt;10.&lt;/span&gt; Pulun qaytarılması
+&lt;span&gt;11.&lt;/span&gt; Malların və ya xidmətlərin geri qaytarılması və ləğvi şərtləri
+&lt;span&gt;12.&lt;/span&gt; Davranış qaydaları
+&lt;span&gt;13.&lt;/span&gt; Fikir mübadiləsi qaydaları
+&lt;span&gt;14.&lt;/span&gt; Lotereya və Promo Kodlar
+&lt;span&gt;15.&lt;/span&gt; Məxfilik Siyasəti və Məlumat İstifadəsi
+&lt;span&gt;16.&lt;/span&gt; Kuki Siyasəti
+&lt;span&gt;17.&lt;/span&gt; Məsuliyyətin məhdudlaşdırılması
+&lt;span&gt;18.&lt;/span&gt; PlayPoint’ə məxsus profillər
+&lt;span&gt;19.&lt;/span&gt; Məzmuna əsasən yaşanacaq neqativ hallar
+&lt;span&gt;20.&lt;/span&gt; Müqavilənin ləğvi</value>
+  </data>
+  <data name="seven" xml:space="preserve">
+    <value>&lt;span&gt;7.PlayPoint Şəxsiyyət Təsdiqlənməsi&lt;/span&gt;  &lt;br /&gt;
+a) Üzvlər PlayPoint-in bəzi xidmətlərindən faydalanmaq üçün şəxsiyyət təsdiqləmə etməli olduqlarını bilirlər. &lt;br /&gt; 
+b) Üzv bilir ki, o anda yalnız PlayPoint-in öz şəxsiyyət təsdiqləmə sistemi vasitəsilə göndərilən sənədlər qəbul ediləcək və müxtəlif kanallar vasitəsilə göndərilən sənədlər qəbul edilməyəcək.
+c) Üzv tərəfindən göndərilən sənədlərdə aşağıdakılar olmalıdır:&lt;br /&gt; 
+c.1) Üzvün özü. &lt;br /&gt; 
+c.2) Üzvün öz şəxsiyyəti, sürücülük vəsiqəsi və ya pasportu. &lt;br /&gt; 
+c.3) Üzərində playpoint.store və sənədin göndərildiyi gün olan kağız.</value>
+  </data>
+  <data name="seventeen" xml:space="preserve">
+    <value>&lt;span&gt;17.Məsuliyyətin məhdudlaşdırılması&lt;/span&gt;  &lt;br /&gt;
+a) Oyunçu Bazarına əlavə edilən reklamdakı bütün məzmun və şəkillər yüklənildiyi andan PlayPoint-ə məxsusdur və PlayPoint bu məzmun və şəkillərdən istədiyi kimi istifadə etmək/istifadə etdirmək hüququnu özündə saxlayır. &lt;br /&gt; 
+b) Satış əməliyyatının tərəfi olmayan PlayPoint, alış-satış prosesinin ödəniş mərhələsində alıcıya və satıcıya PlayPoint güvəncə sistem-i təqdim edir. Malın satıcıya çatdırılması müqabilində qiymətin alınmaması; Bu, alıcını qiymətin ödənilməsi müqabilində malı tamamilə və ya istənilən keyfiyyət və şərtlərlə çatdırmamaq riskindən qorumaq məqsədi daşıyır. &lt;br /&gt; 
+c) PlayPoint daxilində və ya xaricdə heç bir alış olmadan çatdırılan mal və ya xidmətlərin məsuliyyəti tamamilə məlumatı paylaşan Satıcının üzərinə düşür.&lt;br /&gt; 
+d) PlayPoint Üzvlərə hesablarını qorumaq üçün müxtəlif təhlükəsizlik tədbirləri görmək imkanı təklif edir. Bu imkanlardan istifadə edib-etməmək Üzvün öz təşəbbüsüdür. Bu səbəbdən PlayPoint Üzvün səhlənkarlığı, onun hesabının oğurlanması və hər hansı icazəsiz hərəkət nəticəsində yarana biləcək hər hansı neqativlərə görə məsuliyyət daşımır.&lt;br /&gt; 
+e) Qanuni olaraq “fors-major” hesab edilən bütün hallarda PlayPoint bu Müqavilə ilə müəyyən edilmiş öhdəliklərinin hər hansı birinin gecikməsinə, natamam yerinə yetirilməsinə və ya yerinə yetirilməməsinə görə məsuliyyət daşımır. Bu və buna bənzər hallar PlayPoint üçün gecikmə, natamam performans və ya yerinə yetirilməməsi və ya defolt kimi qiymətləndirilməyəcək və ya PlayPoint-dan heç bir ad altında heç bir kompensasiya tələb oluna bilməz. Təbii fəlakətlər, iğtişaşlar, müharibələr, tətillər, kommunikasiya problemləri, infrastruktur və internet nasazlıqları, elektrik enerjisinin kəsilməsi və pis hava şəraiti, o cümlədən, lakin bununla məhdudlaşmayan, müvafiq tərəfin ağlabatan nəzarəti xaricində olan və edə bilməyəcəyi “fors-major” termini qarşısının alınması, lazımi diqqət göstərilməsinə baxmayaraq, qaçınılmaz hadisələr olaraq şərh ediləcək.&lt;br /&gt; 
+f) PlayPoint, öz mülahizəsinə əsasən və birtərəfli qaydada, PlayPoint-də yerləşdirməklə, bu Müqaviləyə uyğun hesab etdiyi istənilən vaxt düzəliş edə bilər. Bu Müqavilənin dəyişdirilmiş müddəaları onların elan edildiyi tarixdən qüvvəyə minəcək; Qalan müddəalar qüvvədə qalacaq və öz müddəalarına və nəticələrinə malik olacaq. Bu Müqavilə Üzvün birtərəfli bəyanatları ilə dəyişdirilə bilməz.&lt;br /&gt; 
+g) Bu Sazişin müddəaları çərçivəsində yaranan hüquqi münasibətlərin həyata keçirilməsində, şərhində və idarə olunmasında Azərbaycan qanunvericiliyi tətbiq edilir. Azərbaycan Məhkəmələri və İcra Büroları bu Müqavilədən irəli gələn və ya yaranan hər hansı mübahisənin həllində səlahiyyətlidir.</value>
+  </data>
+  <data name="six" xml:space="preserve">
+    <value>&lt;span&gt;6.Mesajlaşma Şərtləri&lt;/span&gt; &lt;br /&gt;
+a) Üzvlər bilirlər ki, onlar ani mesajlaşma sistemində digər Üzvlərə yazdıqları bütün məzmuna görə məsuliyyət daşıyırlar.&lt;br /&gt; 
+b)PlayPoint ani mesajlaşma sistemində spamın qarşısını almaq üçün Üzvlərin bir-birinin ardınca göndərə biləcəyi mesajların sayını məhdudlaşdırmışdır. Bu limitə çatan Üzv, qarşı tərəfdən cavab almadıqca yeni mesaj göndərə bilməyəcəyini bilir.&lt;br /&gt; 
+c)Üzvlər mesajlaşma sistemi vasitəsilə digər Üzvlərə verdikləri telefon, e-poçt, ünvan və bütün oxşar şəxsi məlumatlara görə məsuliyyət daşıyırlar.&lt;br /&gt; 
+d) Mesaj göndərən bütün Üzvlər onların mesajlarının silinə bilməyəcəyini qəbul edir və öhdəsinə götürür və PlayPoint zaman-zaman bu mesajların ehtiyat nüsxəsini çıxara və saxlaya bilər. &lt;br /&gt; 
+e) Üzv mesajlaşma zamanı ədalətsiz üstünlük əldə etmək məqsədilə digər Üzvlərə yanlış və/və ya natamam məlumat verərsə, bütün itkilərə görə məsuliyyət daşıdığını və zərər çəkən Üzvün zərərini qarşılamağı öhdəsinə götürür.Bütün itkiləri ödəməlidir.&lt;br /&gt; 
+f) Üzv, mesajlaşma sistemi və/yaxud digər üzvlərlə qarşılıqlı əlaqədə olduğu heç bir yerdə mənfəət məqsədi daşıyan və ya daşımayan müxtəlif saytların adından istifadə edə bilməyəcəyini qəbul edir və öhdəsinə götürür və bunu edərsə, mesajlaşması bağlana bilər. Müvəqqəti və ya qeyri-müəyyən müddətə. &lt;br /&gt; 
+g) PlayPoint zərurət yarandıqda Üzvün digər Üzvlərlə bütün mesajlaşma hüququnu müvəqqəti və ya qeyri-müəyyən müddətə məhdudlaşdırmaq hüququnu özündə saxlayır.</value>
+  </data>
+  <data name="sixteen" xml:space="preserve">
+    <value>&lt;span&gt;16.Kuki Siyasəti&lt;/span&gt;  &lt;br /&gt;
+a) Məxfiliyiniz bizim üçün vacibdir, məxfiliyiniz və təhlükəsizlik hüquqlarınız bizim əsas prinsipimizdir. Şəxsi məlumatlarınızı qorumaq üçün PlayPoint tərəfindən sistem və internet infrastrukturu ən təhlükəsiz səviyyədə saxlanılaraq lazımi tədbirlər görülmüşdür. &lt;br /&gt; 
+b) PlayPoint-də heç bir məlumat vermədən məhsul və xidmətlər haqqında məlumat əldə etməklə ehtiyaclarınızı qarşılaya bilərsiniz. &lt;br /&gt; 
+c) Etibarlılıq müddətinə görə iki növ kuki var, Müvəqqəti və Daimi kukilər.        Bu kukilər istifadə etdiyiniz brauzer vasitəsilə kompüterinizə göndərilən və PlayPoint-ə baş çəkdiyiniz zaman zəmanət verən bir sıra simvollardan ibarət kiçik fayldır. Bunun kompüterinizə heç bir təsiri yoxdur. Kukilər heç bir məlumatı, o cümlədən kompüterinizdə və ya fayllarınızda saxlanılan şəxsi məlumatlarınızı toplamır. &lt;br /&gt; 
+d) Brauzerinizdə saxlanılan Müvəqqəti və Daimi kukilər ziyarət təcrübənizə müsbət təsir göstərmək üçün saytı maraqlarınıza və seçimlərinizə uyğun təşkil etmək üçün istifadə olunur. &lt;br /&gt; 
+e) Demək olar ki, bütün internet brauzerləri kukiləri avtomatik qəbul etmək üçün əvvəlcədən müəyyən edilmişdir. Bununla belə, kukiləri istədiyiniz kimi idarə edə və ya silə bilərsiniz. Kukilərin idarə edilməsi brauzerdən brauzerə fərqli olduğundan, ətraflı məlumat üçün brauzerin yardım menyusuna müraciət edə bilərsiniz. &lt;br /&gt; 
+f) Siz istənilən vaxt kukiləri tamamilə silə bilərsiniz, lakin onların silinməsi PlayPoint-də seçimlərinizə mənfi təsir göstərəcək və bütün xidmətlərdən istifadənizi məhdudlaşdıra bilər.</value>
+  </data>
+  <data name="ten" xml:space="preserve">
+    <value>&lt;span&gt;10.Pulun qaytarılması&lt;/span&gt;  &lt;br /&gt;
+a) PlayPoint arzu olunan mal və ya xidmətləri təmin edə bilmədikdə, Üzv pulun geri qaytarılmasını tələb edərsə, PlayPoint 10.e-də göstərilən müddət ərzində balansa (10.e) uyğun olan haqqı qaytarmağa borcludur. &lt;br /&gt; 
+b) IÜzvün tələb etdiyi məzmun Oyunçu Bazarında satıldıqda və ya Oyunçu Bazarında sifarişi müxtəlif səbəblərə görə ləğv edilən Üzv pulun geri qaytarılmasını tələb edərsə, PlayPoint balansa uyğun olan haqqı geri qaytarmağa borcludur.
+Geri qaytarma şərtlərini yerinə yetirmək üçün Üzvün tələb etdiyi mal və ya xidmətlərə ekvivalent məzmunun PlayPoint və ya Oyunçu bazarında mövcud olmaması faktı PlayPoint tərəfindən yoxlanılır və onun qərarı PlayPoint tərəfindən verilir.
+ &lt;br /&gt; 
+c) Üzv bilir ki, PlayPoint-də üzvlükdə balans kimi əks olunmayan ödənişlərin geri qaytarılması prosesləri ödəniş zamanı istifadə edilən Ödəniş Aləti şirkəti tərəfindən həyata keçiriləcək. Bu səbəbdən bu mərhələdə Ödəniş Agenti şirkətlə əlaqə saxlayaraq ödənişlərin geri qaytarılmasını qəbul edir və göndərməyi öhdəsinə götürür. &lt;br /&gt; 
+d) Üzv bilir ki, ödənişin geri qaytarılması üçün ödənişin bütün məbləği Üzvün balansında istifadə olunmamış halda qalmalıdır və ödənişlərdə qismən geri qaytarıla bilməyəcəyindən xəbərdardır. &lt;br /&gt; 
+e) Qaytarmalar 5 iş günü ərzində başlanır.PlayPoint Ödəniş Aləti şirkəti və ya Bank tərəfindən geri qaytarmanın tamamlanmasında yarana biləcək hər hansı gecikmələrə görə məsuliyyət daşımır.</value>
+  </data>
+  <data name="thirteen" xml:space="preserve">
+    <value>&lt;span&gt;13.Fikir mübadiləsi qaydaları&lt;/span&gt; &lt;br /&gt;
+a) Qəsdən və ya istəmədən paylaşılan ideyaların mülkiyyəti PlayPoint-ə məxsusdur. &lt;br /&gt; 
+b) PlayPoint daim inkişaf etdirilən və tənzimlənən sistemdir. Üzvlər tərəfindən qəsdən və ya istəmədən yaradılan ideyalar və inkişaflar əvvəlcədən nəzərdə tutulmuş və ya planlaşdırıla bilər, ona görə də Üzvlər fikirlərini bölüşərkən bu ideyalar üzərində heç bir hüquq tələb edə bilməyəcəklərini qəbul edir və öhdələrinə götürürlər. &lt;br /&gt; 
+c) İntellektual paylaşımın nəticələrinə görə heç bir mükafat yoxdur, lakin PlayPoint bu hərəkəti etmək təşəbbüsünü özündə saxlayır.</value>
+  </data>
+  <data name="three" xml:space="preserve">
+    <value>&lt;span&gt;3.Müqavilənin mövzusu və əhatə dairəsi&lt;/span&gt; &lt;br /&gt;
+İstifadəçi Müqaviləsinin mövzusu , Saytda təklif olunan Xidmətlərin, bu Xidmətlərdən istifadə şərtlərinin və tərəflərin hüquq və öhdəliklərinin müəyyən edilməsidir.
+Müqavilənin əhatə dairəsi bu müqaviləyə və onun əlavələrinə daxil olan istifadə, üzvlük və Xidmətlərlə bağlı PlayPoint tərəfindən edilən xəbərdarlıqlar, mətnlər və izahatlar kimi bütün ifadələrdir. İstifadəçi Müqavilənin şərtlərini qəbul etməklə, istifadəçi PlayPoint tərəfindən Saytda istifadə, üzvlük və Xidmətlərlə bağlı hər cür bəyanatları da qəbul edir. İstifadəçi yuxarıda qeyd olunan bəyanatlarda göstərilən bütün məsələlərə uyğun hərəkət etməyi qəbul edir, bəyan edir və öhdəlik götürür.</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>&lt;span&gt;Play Point&lt;/span&gt; istifadəçi Müqaviləsi</value>
+  </data>
+  <data name="title2" xml:space="preserve">
+    <value>Bu müqavilə sizin saytımızdakı xidmətlərdən faydalanmağınız üçün lazımi qaydaları əhatə edir. &lt;br /&gt;
+SAYTIMIZIN ÜZVÜ OLMAQLA BÜTÜN MÜQAVİLƏNİ OXUDUĞUNUZU, MƏZMUNUNU ANLADIĞINIZI, ONLARIN ŞƏRTLƏRİ İLƏ TANIŞ OLUB RAZILAŞDIĞINIZI TƏSDİQ EDİRSİNİZ.</value>
+  </data>
+  <data name="twelve" xml:space="preserve">
+    <value>&lt;span&gt;12.Davranış qaydaları&lt;/span&gt;  &lt;br /&gt;
+Üzvlər PlayPoint və/və ya Canlı Dəstək üzərindən bir-biri ilə söhbətlərində sosial sinif, irq, din, məzhəb, cinsi və ya bölgəyə əsaslanan ictimai təhqiredici məzmun göndərmələri halda , PlayPoint üzvlərin mesajlaşma sisteminə və/və ya Canlı Dəstək xidmətinə girişi əvvəlcədən hər hansı xəbərdarlığa heç bir ehtiyac olmadan məhdud və ya qeyri-müəyyən müddətə məhdudlaşdırılma hüququnu özündə saxlayır.</value>
+  </data>
+  <data name="twenty" xml:space="preserve">
+    <value>&lt;span&gt;20.Müqavilənin ləğvi&lt;/span&gt; &lt;br /&gt;
+a) Bu Müqavilə Üzv olduğu müddətdə qüvvədə qalacaq və onun müddəaları və nəticələri tərəflər arasında qalmağa davam edəcək. İstifadəçinin üzvlük müddətinin bitdiyi və ya üzvlük müvəqqəti və ya daimi olaraq dayandırıldığı hallarda o, bitmiş hesab edilməyəcək. &lt;br /&gt; 
+b) Üzvlər bu Müqaviləni və/və ya Saytda istifadə, üzvlük və Xidmətlərlə bağlı oxşar qaydaları pozduqları halda PlayPoint birtərəfli qaydada Müqaviləyə xitam verə bilər və İstifadəçilər PlayPoint-in ləğvi ilə bağlı çəkdiyi bütün itkiləri kompensasiya etməyə borcludurlar. məsuliyyət daşıyır.</value>
+  </data>
+  <data name="two" xml:space="preserve">
+    <value>&lt;span&gt;2.Təriflər&lt;/span&gt;  &lt;br /&gt;
+Market: PlayPoint saytında Üzvlərin öz aralarında alış-veriş əməliyyatları edə biləcəyi "Oyunçu bazarı" adlı bölmədir.
+Ödəniş Aləti: Balansa pul yükləmək və ödənişləri göndərmək üçün istifadə olunan vasitəçi firmadır.
+Qazanc: PlayPoint və ya onun Üzvlərinə mal və ya xidmətlərin satışı müqabilində əldə edilən bütün balans məbləği.
+Satıcı: Satış məqsədi ilə bazara hər hansı reklam əlavə edən fiziki və ya hüquqi şəxsdir.
+Alıcı: Bazarda hər hansı bir mal və ya xidmət alan Üzv.</value>
+  </data>
+</root>

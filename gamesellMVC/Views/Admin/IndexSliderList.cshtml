@@ -1,0 +1,66 @@
+﻿@model IndexSliderListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Index Slider Table</h4>
+                <p class="card-description">
+                    <a asp-controller="Admin" asp-action="IndexSliderCreate" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:60px;"> ID </th>
+                                <th style="width:200px;"> Image </th>
+                                <th> Index Slider Name </th>
+                                <th> Text </th>
+                                <th> Url Title </th>
+                                <th> Url </th>
+                                <th> IsApproved </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ISs.Count() > 0)
+                            {
+                                @foreach (var ac in Model.ISs)
+                                {
+                                    <tr>
+                                        <td>@ac.Id</td>
+                                        <td><img src="/static/img/indexslider/@ac.Img" alt="Alternate Text" /></td>
+                                        <td>@ac.IndexSliderName</td>
+                                        <td>@ac.Text</td>
+                                        <td>@ac.UrlTitle</td>
+                                        <td>@ac.Url</td>
+                                        <td>@ac.IsApproved</td>
+                                        <td>
+                                            <a href="/adminpanel/indexslideredit/@ac.Id" class="btn btn-outline-info btn-fw">Edit</a>
+                                            <form asp-controller="Admin" asp-action="DeleteIS" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-danger btn-fw">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

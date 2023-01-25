@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/img/playpoint_ico.png">
+    @RenderSection("Css", false)
+    <link rel="stylesheet" href="/static/fonts/lineawesome/css/line-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/css/glide.core.min.css">
+    <link rel="stylesheet" href="/static/css/style.min.css">
+    <link href="~/static/css/responsive.min.css" rel="stylesheet" />
+</head>
+<body>
+    @*@if (TempData["message"] != null)
+        {
+            <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+        }*@
+
+    @RenderBody()
+
+
+    <script src="/static/js/jquery.js"></script>
+    @RenderSection("Scripts", false)
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

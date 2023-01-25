@@ -1,0 +1,150 @@
+﻿<header>
+    <div class="header-logo-section">
+        <div class="header-logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="/static/images/playpoint-name-white.svg" alt="">
+            </a>
+        </div>
+        <ul class="menu-list">
+            <li class="menu-items"><a href="/product/product_of_gamer/list" class="menulinks">@localizer["gamershop"]</a></li>
+            <li class="menu-items">
+                <button class="menu-items-nav" onclick="openmenumore()">
+                    <i class="las la-braille"></i>
+                    <div class="menu-items-more-func">
+                        <a href="/xbox/xboxgames"><i class="lab la-xbox"></i>Xbox Gamepass PC</a>
+                        <a href="/product/list"><i class="las la-list"></i>@localizer["categories"]</a>
+                        <a href="/comingsoon"><i class="las la-digital-tachograph"></i>@localizer["giftcards"]</a>
+                        <a href="/comingsoon"><i class="las la-microchip"></i>@localizer["electronicshop"]</a>
+                    </div>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="header-search-section">
+        <form asp-controller="Product" asp-action="ProductSearch" method="get">
+            <input type="text" name="q" id="ajax" placeholder="@localizer["search"]">
+            <input type="hidden" id="hfPros" name="name" value="" />
+            <button type="submit"><i class="las la-search"></i></button>
+        </form>
+    </div>
+    <div class="header-login-section">
+        <div class="search-mobile-division">
+            <button class="language-btn" onclick="openmobilesearch()"><i class="las la-search"></i></button>
+            <div class="search-mobile-content">
+                <form asp-controller="Product" asp-action="ProductSearch" method="post">
+                    <input type="text" name="q" id="ajax" placeholder="@localizer["search"]">
+                    <input type="hidden" id="hfPros" name="name" value="" />
+                    <button type="submit"><i class="las la-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="language-division">
+            <button class="language-btn" onclick="openlanguagemore()"><i class="las la-globe"></i></button>
+            <ul class="language-content">
+                <form asp-controller="Home"
+                      asp-action="CultureManagement"
+                      asp-route-returnUrl="@Context.Request.Path" method="post">
+                <li class="language-items">
+                    <button type="submit">
+                        Azərbaycan
+                        <input type="hidden" name="culture" value="az" />
+                    </button>
+                </li>
+                </form>
+                <form asp-controller="Home"
+                      asp-action="CultureManagement"
+                      asp-route-returnUrl="@Context.Request.Path" method="post">
+                <li class="language-items">
+                    <button type="submit">
+                        English
+                        <input type="hidden" name="culture" value="en" />
+                    </button>
+                </li>
+                </form>
+                <form asp-controller="Home"
+                      asp-action="CultureManagement"
+                      asp-route-returnUrl="@Context.Request.Path" method="post">
+                <li class="language-items">
+                    <button type="submit">
+                        Русский
+                        <input type="hidden" name="culture" value="ru" />
+                    </button>
+                </li>
+                </form>
+                <form asp-controller="Home"
+                      asp-action="CultureManagement"
+                      asp-route-returnUrl="@Context.Request.Path" method="post">
+                <li class="language-items">
+                    <button type="submit">
+                        Turkiye
+                        <input type="hidden" name="culture" value="tr" />
+                    </button>
+                </li>
+                </form>
+            </ul>
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="cart-division">
+                <button class="header-cart-btn" id="cart" onclick="opencartheader()"><i class="las la-shopping-cart"></i></button>
+                <div class="cart-content">
+                    <div class="cart-content-section nesee" id="cartContentId">
+                    </div>
+                    <div class="cart-item-move-content">
+                        <div class="cimc-50 cart-total-sum">
+                            <p><span class="cts-total">@localizer["total"]:</span> <span id="total"></span> <span class="cts-currency" id="curruncy"></span></p>
+                        </div>
+                        <div class="cimc-50 cart-last-buy-content">
+                            <a href="/cart/product">@localizer["completeorder"]</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            @*<button class="header-login-btn" onclick="openlogreg('Login')"><a href="/account/login"><i class="las la-shopping-cart"></i></a></button>*@
+        }
+
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="profile-login-icon" id="pic">
+                <img class="profile-login-icon-image" id="mainLogo" src="" alt="" onclick="openheaderprofile()">
+                <div class="header-profile-menu">
+                    <div class="header-profile-info">
+                        <div class="header-profile-info-left" id="">
+                            <img src="" alt="" id="bashi" class="header-profile-info-image">
+
+                        </div>
+                        <div class="header-profile-info-right" id="balansId">
+                            <h4>@User.Identity.Name</h4>
+                            <h6>@localizer["balance"]:<span></span></h6>
+                        </div>
+                    </div>
+                    <div class="header-profile-nav">
+                        <ul>
+                            <li><a href="/account/library">@localizer["gamelibrary"]</a></li>
+                            <li><a href="/account/libraryofsell">@localizer["libraryofsell"]</a></li>
+                            <li><a href="/account/addbalance">@localizer["loadbalance"]</a></li>
+                            <li><a href="/account/manage">@localizer["editprofile"]</a></li>
+                            @if (User.IsInRole("Moderator"))
+                            {
+                                <li><a href="/adminpanel/home" target="_blank">Admin Panel</a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="logout-btn">
+                        <a href="/account/logout"><span><i class="las la-sign-out-alt"></i></span>@localizer["logout"]</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <button class="header-login-btn" onclick="openlogreg('Login')"><a href="/account/login"><i class="las la-user-circle"></i></a></button>
+        }
+    </div>
+</header>

@@ -1,0 +1,835 @@
+﻿@model ProductListViewModel
+
+@section Css
+{
+    <title>PlayPoint</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+}
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+
+@if (Model.ISs.Count() > 0)
+{
+    <div class="main-slider-section">
+        <div class="main-slider-content">
+            <div class="header-slider-buttons">
+                <button class="header-button header-slider-prev"><i class="las la-angle-left"></i></button>
+                <button class="header-button header-slider-next"><i class="las la-angle-right"></i></button>
+            </div>
+            <div class="header-slider">
+                @foreach (var q in Model.ISs)
+                {
+                    <div>
+                        <div class="header-slider-content slider-550">
+                            <img class="main-sliderimg-back slider-550" src="/static/img/indexslider/@q.Img" alt="">
+                            <div class="hsc-info slider-550">
+                                <p data-animation-in="animateanimated animatefadeInUp">@q.Text  </p>
+                                <a data-animation-in="animateanimated animatefadeInUp" data-delay-in="1" href="@q.Url"> @q.UrlTitle </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="main-slider-section">
+        <div class="main-slider-content">
+            <div class="header-slider-buttons">
+                <button class="header-button header-slider-prev"><i class="las la-angle-left"></i></button>
+                <button class="header-button header-slider-next"><i class="las la-angle-right"></i></button>
+            </div>
+            <div class="header-slider">
+                <div>
+                    <div class="header-slider-content slider-550">
+                        <img class="main-sliderimg-back slider-550" src="/static/images/games/1369946.jpg" alt="">
+                        <div class="hsc-info slider-550">
+                            <p data-animation-in="animateanimated animatefadeInUp">Corem ipsum, dolor sit amet consectetur adipisicing elit. Nemo neque mollitia facere, aperiam quaerat ullam ut cumque vel similique error animi? Nobis facilis aut aliquid laudantium placeat rerum molestiae corrupti!</p>
+                            <a data-animation-in="animateanimated animatefadeInUp" data-delay-in="1" href="#">Daxil ol</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="header-slider-content slider-550">
+                        <img class="main-sliderimg-back slider-550" src="/static/images/games/borderlands3.jpg" alt="">
+                        <div class="hsc-info slider-550">
+                            <p data-animation-in="animateanimated animatefadeInUp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo neque mollitia facere, aperiam quaerat ullam ut cumque vel similique error animi? Nobis facilis aut aliquid laudantium placeat rerum molestiae corrupti!</p>
+                            <a data-animation-in="animateanimated animatefadeInUp" data-delay-in="1" href="#">sdsdsdsdsd</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <div class="header-slider-content slider-550">
+                        <img class="main-sliderimg-back slider-550" src="/static/images/games/cyberpunk.jpg" alt="">
+                        <div class="hsc-info slider-550">
+                            <p data-animation-in="animateanimated animatefadeInUp">Porem ipsum, dolor sit amet consectetur adipisicing elit. Nemo neque mollitia facere, aperiam quaerat ullam ut cumque vel similique error animi? Nobis facilis aut aliquid laudantium placeat rerum molestiae corrupti!</p>
+                            <a data-animation-in="animateanimated animatefadeInUp" data-delay-in="1" href="#">sdsdsdsdsd</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="sale-games-content">
+    <div class="slider-info">
+        <a href="/product/list"><span>@localizer["salegames"]</span><i class="las la-angle-right"></i></a>
+        <div class="sale-buttons">
+            <button class="sale-button sale-slider-prev"><i class="las la-angle-left"></i></button>
+            <button class="sale-button sale-slider-next"><i class="las la-angle-right"></i></button>
+        </div>
+    </div>
+    <div class="slick-sale-slider">
+        @if (Model.salegames.Count() == 0)
+        {
+            <div class="row">
+                <h2>@localizer["nothingishere"]</h2>
+            </div>
+        }
+        else
+        {
+            int a = 1;
+            @foreach (var s in Model.salegames)
+            {
+                if (a < 15)
+                {
+                    <div>
+                        <a href="/product/details/@s.Id/@s.Url">
+                            <div class="sale-content-item">
+                                <img src="/static/img/product/@s.Main_img" alt="">
+
+                                <div class="sale-content-item-info">
+                                    <h3 class="product-name">@s.Name</h3>
+                                    <h4 class="product-offer-name">@s.Company_name</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    a += 1;
+                }
+                else if (a >= 15)
+                {
+                    break;
+                }
+            }
+        }
+    </div>
+</div>
+
+<div class="upcoming-content">
+    <div class="upcoming-games-content">
+        <div class="title-content">
+            <h4>@localizer["upcominggames"]</h4>
+            <a href="/product/list">@localizer["showmore"]</a>
+        </div>
+        <div class="upcoming-games-item-content">
+            @if (Model.upcominggames.Count() == 0)
+            {
+                <div class="row">
+                    <h2>@localizer["nothingishere"]</h2>
+                </div>
+            }
+            else
+            {
+                int a = 1;
+                @foreach (var u in Model.upcominggames)
+                {
+                    if (a < 4)
+                    {
+                        <div class="upcoming-games-items">
+                            <a href="/product/details/@u.Id/@u.Url">
+                                <div class="upcoming-games-image" style="background-image: url(/static/img/product/big@(u.Main_img));">
+                                    <div class="upcoming-games-overlay">
+                                        <div class="upcoming-games-overlay-left">
+                                            <h4 class="product-name">@u.Name</h4>
+                                            @*<h4 class="product-price prc-listed">
+                                                    @if (u.Discount_percent == 0)
+                                                    {
+                                                        @if (User.Identity.IsAuthenticated == false)
+                                                        {
+                                                            @foreach (var q in Model.Curs)
+                                                            {
+                                                                if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                                {
+                                                                    @Math.Round((a = @u.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                                }
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            @foreach (var q in Model.Curs)
+                                                            {
+                                                                if (q.Id == Model.Cur)
+                                                                {
+                                                                    @Math.Round((a = @u.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        double b = u.ConstNumber = u.Price - (u.Price * u.Discount_percent) / 100;
+                                                        @if (User.Identity.IsAuthenticated == false)
+                                                        {
+                                                            @foreach (var q in Model.Curs)
+                                                            {
+                                                                if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                                {
+                                                                    @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                                }
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            @foreach (var q in Model.Curs)
+                                                            {
+                                                                if (q.Id == Model.Cur)
+                                                                {
+                                                                    @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                </h4>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        a++;
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<div class="custom-line-games-content">
+    <div class="custom-line-column-item">
+        <div class="title-section">
+            <h4>@localizer["newreleases"]</h4>
+        </div>
+        <div class="custom-line-games-item-content">
+            @if (Model.newreleases.Count() == 0)
+            {
+                <div class="row">
+                    <h2>@localizer["nothingishere"]</h2>
+                </div>
+            }
+            else
+            {
+                double a = 0;
+                @foreach (var n in Model.newreleases)
+                {
+                    <a href="/product/details/@n.Id/@n.Url">
+                        <div class="custom-line-games-item">
+                            <img src="/static/img/product/@n.Main_img" alt="">
+                            <div class="custom-line-games-item-info">
+                                <h4>@n.Name</h4>
+                                <div class="price-content">
+                                    <h5>
+                                        @if (n.Price == 0)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            @if (n.Discount_percent == 0)
+                                            {
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = @n.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = @n.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                double b = n.ConstNumber = n.Price - (n.Price * n.Discount_percent) / 100;
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <div class="custom-line-column-item">
+        <div class="title-section">
+            <h4>@localizer["topsellers"]</h4>
+        </div>
+        <div class="custom-line-games-item-content">
+            @if (Model.topsellers.Count() == 0)
+            {
+                <div class="row">
+                    <h2>@localizer["nothingishere"]</h2>
+                </div>
+            }
+            else
+            {
+                double a = 0;
+                @foreach (var t in Model.topsellers)
+                {
+                    <a href="/product/details/@t.Id/@t.Url">
+                        <div class="custom-line-games-item">
+                            <img src="/static/img/product/@t.Main_img" alt="">
+                            <div class="custom-line-games-item-info">
+                                <h4>@t.Name</h4>
+                                <div class="price-content">
+                                    <h5>
+                                        @if (t.Price == 0)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            @if (t.Discount_percent == 0)
+                                            {
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = @t.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = @t.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                double b = t.ConstNumber = t.Price - (t.Price * t.Discount_percent) / 100;
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2)<span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+    <div class="custom-line-column-item">
+        <div class="title-section">
+            <h4>@localizer["upcoming2"] </h4>
+        </div>
+        <div class="custom-line-games-item-content">
+            @if (Model.newreleases.Count() == 0)
+            {
+                <div class="row">
+                    <h2>@localizer["nothingishere"]</h2>
+                </div>
+            }
+            else
+            {
+                //double a = 0;
+                @foreach (var n in Model.upcoming5)
+                {
+                    <a href="/product/details/@n.Id/@n.Url">
+                        <div class="custom-line-games-item">
+                            <img src="/static/img/product/@n.Main_img" alt="">
+                            <div class="custom-line-games-item-info">
+                                <h4>@n.Name</h4>
+                                @*<div class="price-content">
+                                        <h5>
+                                            @if (n.Discount_percent == 0)
+                                            {
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = @n.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = @n.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                double b = n.ConstNumber = n.Price - (n.Price * n.Discount_percent) / 100;
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        </h5>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+
+<div class="big-trendig-game-content">
+    @if (Model.Xboxdata != null)
+    {
+        <div class="big-trendig-game-content-items">
+            <div class="home-xbox-slider-section">
+                <div class="xbox-slider-buttons">
+                    <button class="xbox-button xbox-slider-prev"><i class="las la-angle-left"></i></button>
+                    <button class="xbox-button xbox-slider-next"><i class="las la-angle-right"></i></button>
+                </div>
+                <div class="home-xbox-slider">
+                    <div>
+                        @if (@Model.Xboxdata.Img2 != null)
+                        {
+                            <img src="/static/img/xboxdata/@Model.Xboxdata.Img2" alt="">
+                        }
+                    </div>
+                    <div>
+                        @if (@Model.Xboxdata.Img3 != null)
+                        {
+                            <img src="/static/img/xboxdata/@Model.Xboxdata.Img3" alt="">
+                        }
+                    </div>
+                    <div>
+                        @if (@Model.Xboxdata.Img4 != null)
+                        {
+                            <img src="/static/img/xboxdata/@Model.Xboxdata.Img4" alt="">
+                        }
+                    </div>
+                    <div>
+                        @if (@Model.Xboxdata.Img5 != null)
+                        {
+                            <img src="/static/img/xboxdata/@Model.Xboxdata.Img5" alt="">
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <a href="/xbox/xboxgames">
+                <div class="big-trendig-game-content-item">
+
+                    <div class="big-trendig-game-content-item-info">
+                        <h3 class="product-name">@localizer["xboxgppc"]</h3>
+                        <h4 class="product-offer-name">
+                            @localizer["text"]
+                        </h4>
+                        @if (User.Identity.IsAuthenticated == false)
+                        {
+                            double a = 0;
+                            @foreach (var q in Model.Curs)
+                            {
+                                if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                {
+                                    <h4 class="product-price">@localizer["daily"]: @Math.Round((a = Model.Xboxdata.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span></h4>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            double a = 0;
+                            @foreach (var q in Model.Curs)
+                            {
+                                if (q.Id == Model.Cur)
+                                {
+                                    <h4 class="product-price">@localizer["daily"]: @Math.Round((a = Model.Xboxdata.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span></h4>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="big-trendig-game-content-items">
+            <div class="home-xbox-slider-section">
+                <div class="xbox-slider-buttons">
+                    <button class="xbox-button xbox-slider-prev"><i class="las la-angle-left"></i></button>
+                    <button class="xbox-button xbox-slider-next"><i class="las la-angle-right"></i></button>
+                </div>
+                <div class="home-xbox-slider">
+                    <div>
+                        <img src="images/gamepass.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="images/gamepass1.png" alt="">
+                    </div>
+                    <div>
+                        <img src="images/gamepass2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <a href="#">
+                <div class="big-trendig-game-content-item">
+
+                    <div class="big-trendig-game-content-item-info">
+                        <h3 class="product-name">Xbox Gamepass for PC</h3>
+                        <h4 class="product-offer-name">
+                            Immerse yourself in a library of over 100 high-quality games.
+                            Enjoy the benefits of Xbox Live Gold, EA Play, and play across devices from the cloud
+                            when
+                            you join Xbox Game Pass Ultimate.
+                        </h4>
+                        <h4 class="product-price">AZN 8</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+
+    @if (Model.indexslider.Count() > 0)
+    {
+        <div class="big-trendig-game-content-items">
+            <div class="more-some-slider-section">
+                <div class="more-some-slider-buttons">
+                    <button class="more-some-button more-some-slider-prev"><i class="las la-angle-left"></i></button>
+                    <button class="more-some-button more-some-slider-next"><i class="las la-angle-right"></i></button>
+                </div>
+                <div class="more-some-slider">
+                    @foreach (var w in Model.indexslider)
+                    {
+                        <div>
+                            <a href="/product/details/@w.Id/@w.Url">
+                                <div class="big-trendig-game-content-item">
+                                    <img src="/static/img/product/@w.Slider_img1" alt="">
+
+                                    <div class="big-trendig-game-content-item-info">
+                                        <h3 class="product-name">@w.Name</h3>
+                                        <h4 class="product-offer-name">@w.Company_name</h4>
+                                        @if (w.Price == 0)
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                            @if (w.Discount_percent == 0)
+                                            {
+                                                double a = 0;
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            <h4 class="product-price">@Math.Round((a = w.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span></h4>
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            <h4 class="product-price">@Math.Round((a = w.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span></h4>
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                double b = w.ConstNumber = w.Price - (w.Price * w.Discount_percent) / 100;
+                                                double a = 0;
+                                                @if (User.Identity.IsAuthenticated == false)
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                        {
+                                                            <h4 class="product-price">@(a = b * q.CurrencyConst) <span>@q.CurrencyIcon</span></h4>
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    @foreach (var q in Model.Curs)
+                                                    {
+                                                        if (q.Id == Model.Cur)
+                                                        {
+                                                            <h4 class="product-price">@(a = b * q.CurrencyConst) <span>@q.CurrencyIcon</span></h4>
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+    }
+    else
+    {
+        <div class="big-trendig-game-content-items">
+            <div class="more-some-slider-section">
+                <div class="more-some-slider-buttons">
+                    <button class="more-some-button more-some-slider-prev"><i class="las la-angle-left"></i></button>
+                    <button class="more-some-button more-some-slider-next"><i class="las la-angle-right"></i></button>
+                </div>
+                <div class="more-some-slider">
+                    <div>
+                        <a href="#">
+                            <div class="big-trendig-game-content-item">
+                                <img src="/static/images/games/AC KINGDOM PREORDER_STANDARD EDITION_EPIC_Key_Art_Portrait_640x854-640x854-288120c5573756cb988b6c1968cebd86.webp" alt="">
+
+                                <div class="big-trendig-game-content-item-info">
+                                    <h3 class="product-name">Fallout 76</h3>
+                                    <h4 class="product-offer-name">Telltale Games studio</h4>
+                                    <h4 class="product-price">USD 49,20</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div class="big-trendig-game-content-item">
+                                <img src="/static/images/games/custom – 5.jpg" alt="">
+
+                                <div class="big-trendig-game-content-item-info">
+                                    <h3 class="product-name">Destiny 2</h3>
+                                    <h4 class="product-offer-name">Telltale Games studio</h4>
+                                    <h4 class="product-price">USD 49,20</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div class="big-trendig-game-content-item">
+                                <img src="/static/images/games/cyberpunk.jpg" alt="">
+
+                                <div class="big-trendig-game-content-item-info">
+                                    <h3 class="product-name">Cyberpunk 2077</h3>
+                                    <h4 class="product-offer-name">Telltale Games studio</h4>
+                                    <h4 class="product-price">USD 49,20</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+<div class="listed-games-content">
+    <a class="listed-all-games-link" href="/product/list"><span>@localizer["gamesforyou"]</span><i class="las la-angle-right"></i></a>
+    <div class="listed-games-items-content">
+        @if (Model.gamesforyou.Count() == 0)
+        {
+            <div class="row">
+                <h2>@localizer["nothingishere"]</h2>
+            </div>
+        }
+        else
+        {
+            int c = 1;
+            double a = 0;
+            @foreach (var g in Model.gamesforyou)
+            {
+                if (c < 22)
+                {
+                    <a href="/product/details/@g.Id/@g.Url">
+                        <input type="hidden" name="id" value="@g.Id" />
+                        <div class="listed-content-item">
+                            <img src="/static/img/product/@g.Main_img" alt="">
+
+                            <div class="listed-content-item-info">
+                                <h3 class="product-name">@g.Name</h3>
+                                <h4 class="product-offer-name">@g.Company_name</h4>
+                                <h4 class="product-price">
+                                    @if (g.Price == 0)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        @if (g.Discount_percent == 0)
+                                        {
+                                            @if (User.Identity.IsAuthenticated == false)
+                                            {
+                                                @foreach (var q in Model.Curs)
+                                                {
+                                                    if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                    {
+                                                        @Math.Round((a = @g.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @foreach (var q in Model.Curs)
+                                                {
+                                                    if (q.Id == Model.Cur)
+                                                    {
+                                                        @Math.Round((a = @g.Price * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            double b = g.ConstNumber = g.Price - (g.Price * g.Discount_percent) / 100;
+                                            @if (User.Identity.IsAuthenticated == false)
+                                            {
+                                                @foreach (var q in Model.Curs)
+                                                {
+                                                    if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                                                    {
+                                                        @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                @foreach (var q in Model.Curs)
+                                                {
+                                                    if (q.Id == Model.Cur)
+                                                    {
+                                                        @Math.Round((a = b * q.CurrencyConst), 2) <span>@q.CurrencyIcon</span>
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                </h4>
+                            </div>
+                        </div>
+                    </a>
+                    c += 1;
+                }
+                else if (c >= 22)
+                {
+                    break;
+                }
+            }
+        }
+    </div>
+    <div class="listed-more-center">
+        <a href="/product/list" class="listed-games-more">@localizer["showallgames"]</a>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+}

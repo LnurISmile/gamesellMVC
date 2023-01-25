@@ -1,0 +1,59 @@
+﻿@model XboxgameListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Xbox Games Table</h4>
+                <p class="card-description">
+                    <a asp-controller="Admin" asp-action="XboxgameCreate" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:60px;"> ID </th>
+                                <th style="width:200px;"> Image 1 </th>
+                                <th> GameName </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.XGs.Count() > 0)
+                            {
+                                @foreach (var ac in Model.XGs)
+                                {
+                                    <tr>
+                                        <td>@ac.Id</td>
+                                        <td><img src="/static/img/xboxgame/@ac.Img" alt="Xəta baş verdi" width="150" /></td>
+                                        <td>@ac.GameName</td>
+                                        <td>
+                                            <a href="/adminpanel/xboxgameedit/@ac.Id" class="btn btn-outline-info btn-fw">Edit</a>
+                                            <form asp-controller="Admin" asp-action="DeleteXG" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-danger btn-fw">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

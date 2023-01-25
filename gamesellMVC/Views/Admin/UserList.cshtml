@@ -1,0 +1,100 @@
+﻿@model UserListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Users Table</h4>
+                <p>
+                    <a asp-controller="Admin" asp-action="UserDeletedList" class="btn btn-outline-secondary btn-fw">Recycle</a>
+                    <a asp-controller="Admin" asp-action="CreateUser" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:100px;"></th>
+                                <th style="width:60px;"> ID </th>
+                                <th style="width:200px;"> Image </th>
+                                <th> Username </th>
+                                <th> First Name </th>
+                                <th> Last Name </th>
+                                <th> Email </th>
+                                <th> Email Confirmed </th>
+                                <th> Mobile </th>
+                                <th> Dob </th>
+                                <th> Language </th>
+                                <th> Currency </th>
+                                <th> Premium </th>
+                                <th> Seller Rank </th>
+                                <th> Like </th>
+                                <th> Dislike </th>
+                                <th> IsApproved </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Users.Count() > 0)
+                            {
+                                @foreach (var u in Model.Users)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="/adminpanel/edituser/@u.Id" class="btn btn-outline-info btn-fw">Edit</a>
+
+                                            <form asp-controller="Admin" asp-action="UnApprovedUser" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@u.Id" />
+                                                <button type="submit" class="btn btn-outline-warning btn-fw">UnApproved</button>
+                                            </form>
+                                        </td>
+                                        <td>@u.Id</td>
+                                        <td><img src="/static/img/users/@u.profile_pic" alt="Xəta baş verdi" width="150" /></td>
+                                        <td>@u.UserName</td>
+                                        <td>@u.FirstName</td>
+                                        <td>@u.LastName</td>
+                                        <td>@u.Email</td>
+                                        <td>@u.EmailConfirmed</td>
+                                        <td>@u.MobileNumber</td>
+                                        <td>@u.Dob</td>
+                                        @foreach (var l in Model.Langs)
+                                        {
+                                            if (l.Id == u.languageID)
+                                            {
+                                                <td>@l.LanguageName</td>
+                                                break;
+                                            }
+                                        }
+                                        @foreach (var c in Model.Curs)
+                                        {
+                                            if (c.Id == u.currencyID)
+                                            {
+                                                <td>@c.CurrencyName</td>
+                                                break;
+                                            }
+                                        }
+                                        <td>@u.premium</td>
+                                        <td>@u.seller_rank</td>
+                                        <td>@u.like</td>
+                                        <td>@u.dislike</td>
+                                        <td>@u.IsApproved</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

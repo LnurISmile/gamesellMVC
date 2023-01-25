@@ -1,0 +1,46 @@
+﻿@model XboxgameModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Xbox Game Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="XboxgameEdit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="GameName" class="col-sm-3 col-form-label">Game Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="GameName" value="@Model.GameName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Img">Image</label>
+                            <input type="hidden" asp-for="Img" />
+                            <img src="~/static/img/xboxgame/@Model.Img" width="150" alt="Xəta baş verdi" />
+                            <input type="file" name="file" class="form-control" />
+                            <span asp-validation-for="Img" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="Priority" class="col-sm-3 col-form-label">Priority</label>
+                            <div class="col-sm-9">
+                                <input type="number" asp-for="Priority" value="@Model.Priority" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

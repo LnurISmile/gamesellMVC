@@ -1,0 +1,53 @@
+﻿@model PurchasedPOGListViewModel
+
+<div class="library-page-overlay">
+    <div class="game-library-popup">
+        <div class="game-library-popup-image">
+            <img src="images/games/cyberpunk.jpg" alt="">
+        </div>
+        <div class="game-library-popup-right">
+            <div class="game-library-popup-info">
+                <h4>Game name:<span>Dark solus</span></h4>
+                <h5>Platform:<span>Steam</span></h5>
+            </div>
+            <div class="game-library-popup-login">
+                <h4>Login:<span id="popup-login-mail" onclick="copyToClipboard('popup-login-mail')">randommail@mail.com</span></h4>
+                <h5>Password:<span id="popup-login-pass" onclick="copyToClipboard('popup-login-pass')">123456</span></h5>
+            </div>
+        </div>
+        <button class="game-library-popup-exit" onclick="library_popup_exit()"><i class="las la-times"></i></button>
+    </div>
+</div>
+
+<div class="library-page-section">
+    <div class="library-titles">
+        <h4>My games</h4>
+    </div>
+    <div class="library-games">
+        <!-- <div class="library-games-empty">
+            <h1>You have not any games</h1>
+            <a href="category.html">Explore now</a>
+        </div> -->
+
+        <div class="library-game">
+            <div class="library-game-image" style="background-image: url(images/games/darksouls.jpg);" onclick="library_game_open('1')" id="1">
+                <p class="library-game-image-name">Elder scrolls - skyrim special edition</p>
+                <input type="hidden" class="library-game-image" value="darksouls.jpg">
+                <input type="hidden" class="library-game-name" value="Elder scrolls - skyrim special edition">
+                <input type="hidden" class="library-game-platform" value="Steam">
+                <input type="hidden" class="library-game-login" value="randommail@mail.com">
+                <input type="hidden" class="library-game-password" value="123456">
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/vanilla-tilt.js"></script>
+}

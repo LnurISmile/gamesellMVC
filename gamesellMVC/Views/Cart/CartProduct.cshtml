@@ -1,0 +1,167 @@
+﻿@model CartPModel
+
+@section Css
+{
+    <title>Card</title>
+}
+
+<div class="cart-inner-content">
+    <div class="cic-left">
+        <div class="cic-item-content">
+            @if (Model.CartItemsP.Count() > 0)
+            {
+                @foreach (var q in Model.CartItemsP)
+                {
+                    <div class="cic-item">
+                        <div class="cic-item-image" style="background-image: url(/static/img/product/@q.Img);">
+                        </div>
+                        <div class="cic-item-content">
+                            <div class="cic-item-name-content">
+                                <p class="cic-item-name-title">@q.Name</p>
+                                @foreach (var w in Model.Plats)
+                                {
+                                    if (q.Platform == w.Id)
+                                    {
+                                        <p class="cic-item-name-platform"><span>@localizer["platform"] :</span> @w.PlatformName</p>
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <div class="cic-item-price-content">
+                                @if (q.Discount > 0)
+                                {
+                                    double a = 0;
+                                    double b = q.Const = q.Price - (q.Price * q.Discount) / 100;
+                                    <h4 class="cic-item-price-discount">
+                                        <span>
+                                            @foreach (var w in Model.Curs)
+                                            {
+                                                if (w.Id == Model.Cur)
+                                                {
+                                                    @(a = Math.Round(q.Price * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                                                }
+                                            }
+                                        </span>
+                                        <div class="cic-item-price-discount-percentage">@q.Discount %</div>
+                                    </h4>
+                                    <h3 class="cic-item-price-full">
+                                        @foreach (var w in Model.Curs)
+                                        {
+                                            if (w.Id == Model.Cur)
+                                            {
+                                                @(a = Math.Round(b * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                                            }
+                                        }
+                                    </h3>
+                                }
+                                else
+                                {
+                                    double a = 0;
+                                    <h3 class="cic-item-price-full">
+                                        @foreach (var w in Model.Curs)
+                                        {
+                                            if (w.Id == Model.Cur)
+                                            {
+                                                @(a = Math.Round(q.Price * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                                            }
+                                        }
+                                    </h3>
+                                }
+                            </div>
+                            <form asp-controller="Cart" asp-action="DeleteFromCartP" method="post">
+                                <input type="hidden" name="productId" value="@q.ProductId" />
+                                <div class="cic-item-editor-content">
+                                    <button type="submit">  <i class="las la-trash"></i>  </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <div class="cic-item-empty">
+                    <p>@localizer["noproduct"]</p>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="cic-right">
+        <div class="cic-buy-info-content">
+            <div class="cic-buy-info-top">
+                @if (Model.CartItemsP.Count() > 0)
+                {
+                    double a = 0;
+                    @foreach (var q in Model.CartItemsP)
+                    {
+                        <div class="cic-buy-info-game-sum">
+                            <p>@q.Name :</p>
+                            @if (q.Discount > 0)
+                            {
+                                double b = q.Const = q.Price - (q.Price * q.Discount) / 100;
+                                <h4>
+                                    @foreach (var w in Model.Curs)
+                                    {
+                                        if (w.Id == Model.Cur)
+                                        {
+                                            @(a = Math.Round(b * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                                        }
+                                    }
+
+                                </h4>
+                            }
+                            else
+                            {
+                                <h4>
+                                    @foreach (var w in Model.Curs)
+                                    {
+                                        if (w.Id == Model.Cur)
+                                        {
+                                            @(a = Math.Round(q.Price * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                                        }
+                                    }
+                                </h4>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+
+                }
+            </div>
+            <div class="cic-buy-info-bottom">
+                <div class="cic-buy-info-total">
+                    <p>@localizer["totalsummary"]:</p>
+                    <h4>
+                        @foreach (var w in Model.Curs)
+                        {
+                            double a = 0;
+                            if (w.Id == Model.Cur)
+                            {
+                                @(a = Math.Round(Model.TotalPriceP() * w.CurrencyConst, 2)) <span>@w.CurrencyIcon</span>
+                            }
+                        }
+                    </h4>
+                </div>
+                <div class="cic-buy-info-button-content">
+                    @if (Model.CartItemsP.Count() > 0)
+                    {
+                        <form asp-controller="Account" asp-action="BuyProduct" method="post">
+                            <button type="submit">@localizer["bwb"]</button>
+                        </form>
+                    }
+                    <a href="/account/addbalance">@localizer["addbalance"]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

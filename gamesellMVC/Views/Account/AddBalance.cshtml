@@ -1,0 +1,69 @@
+﻿@model AddBalanceModel
+
+@section Css
+{
+    <title>Add balance</title>
+}
+
+<div class="add-balance-content">
+    <h2 class="h4" style="color:#fff">@localizer["tec"]</h2>
+    @if (false)
+    {
+        <div class="abc-left">
+            <div class="abc-left-content">
+                <div class="abc-info-panel">
+                    <div class="abc-profile-image" style="background-image: url(/static/img/users/@Model.User.profile_pic);"></div>
+                    <h4 class="abc-profile-balance">@localizer["yourbalance"] : <span> @Math.Round(Model.User.Balance, 2) $</span></h4>
+                </div>
+                <form asp-controller="Account" asp-action="Payment" method="get">
+                    <div class="abc-add-balance-senttings">
+                        <div class="abc-choose-paytype">
+                            <div class="abc-paytype-section-50">
+                                <div class="abc-input-section">
+                                    <label for="paytype">@localizer["payment"]</label>
+                                    <select class="abc-pay-select inputs-content" name="paytype" id="" onchange="">
+                                        <option disabled>@localizer["choose"]</option>
+                                        <option value="1" selected>ePoint</option>
+                                    </select>
+                                    <span>@localizer["pleasechoose"]</span>
+                                </div>
+                            </div>
+                            <div class="abc-paytype-section-50">
+                                <div class="abc-input-section">
+                                    <div class="paytype-info">
+                                        <label for="paytype">@localizer["money"]</label>
+                                        <span>@localizer["cur"]</span>
+                                    </div>
+                                    <input type="number" asp-for="amount" id="payAmount" placeholder="@localizer["usd"]" class="abc-pay-input inputs-content">
+                                    <span class="abc-pay-warn" asp-validation-for="amount"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pay-to-next">
+                            <button type="submit" class="abc-pay-next-button" id="btn_sendPayment">Next</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="abc-right">
+            <div class="abc-right-content">
+                <p>
+                    @localizer["text"]
+                </p>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="~/static/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/static/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

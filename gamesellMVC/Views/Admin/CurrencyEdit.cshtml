@@ -1,0 +1,74 @@
+﻿@model CurrencyModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Currency Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="CurrencyEdit" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CurrencyName" class="col-sm-3 col-form-label">Currency Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="CurrencyName" value="@Model.CurrencyName" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="IsApproved" class="col-sm-3 col-form-label">IsApproved</label>
+                            <div class="col-sm-9">
+                                <select asp-for="IsApproved" class="form-control">
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CurrencyConst" class="col-sm-3 col-form-label">Currency Const</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="CurrencyConst" value="@Model.CurrencyConst" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CurrencyIcon" class="col-sm-3 col-form-label">Currency Icon</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="CurrencyIcon" value="@Model.CurrencyIcon" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="LanguageTag" class="col-sm-3 col-form-label">Language Tag</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="LanguageTag" value="@Model.LanguageTag" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="CurrencyStringConst" class="col-sm-3 col-form-label">Currency String Const</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="CurrencyStringConst" value="@Model.CurrencyStringConst" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

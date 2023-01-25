@@ -1,0 +1,89 @@
+﻿@model PurchasedPOGListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Purchased POG Table</h4>
+                <p class="card-description">
+                    <a asp-controller="Admin" asp-action="PurchasedPOGCreate" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:60px;"> ID </th>
+                                <th> UserID </th>
+                                <th> User </th>
+                                <th> POGID </th>
+                                <th> POG </th>
+                                <th> IsApproved </th>
+                                <th> Sold Date </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.PPOGs.Count() > 0)
+                            {
+                                @foreach (var ac in Model.PPOGs)
+                                {
+                                    <tr>
+                                        <td>@ac.Id</td>
+                                        @foreach (var u in Model.Users)
+                                        {
+                                            if (u.Id == ac.UserId)
+                                            {
+                                                <td>@ac.UserId</td>
+                                                <td>@u.UserName</td>
+                                                break;
+                                            }
+                                        }
+
+                                        @foreach (var pog in Model.POGs)
+                                        {
+                                            if (pog.Id == ac.POGId)
+                                            {
+                                                <td>@ac.POGId</td>
+
+                                                @foreach (var gn in Model.Gns)
+                                                {
+                                                    if (gn.Id == pog.GameNameID)
+                                                    {
+                                                        <td>@gn.GameOfName</td>
+                                                        break;
+                                                    }
+                                                }
+                                                break;
+                                            }
+                                        }
+                                        <td>@ac.IsApproved</td>
+                                        <td>@ac.DateTime</td>
+                                        <td>
+                                            <a href="/adminpanel/purchasedpogedit/@ac.Id" class="btn btn-outline-info btn-fw">Edit</a>
+                                            <form asp-controller="Admin" asp-action="DeletePPOG" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-danger btn-fw">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

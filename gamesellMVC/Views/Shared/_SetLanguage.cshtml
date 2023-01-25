@@ -1,0 +1,15 @@
+﻿@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+<form asp-controller="Home"
+      asp-action="CultureManagement"
+      asp-route-returnUrl="@Context.Request.Path" method="post">
+    <select name="culture"
+            asp-for="@requestCulture.RequestCulture.UICulture.Name"
+            asp-items="cultureItems"
+            onchange="this.form.submit();">
+    </select>
+</form>

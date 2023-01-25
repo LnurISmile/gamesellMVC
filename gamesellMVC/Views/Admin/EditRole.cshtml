@@ -1,0 +1,27 @@
+﻿@model EditRoleModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Role Edit</h4>
+            <form class="form-sample" asp-controller="Admin" asp-action="EditRole" method="post">
+                <input type="hidden" name="RoleId" value="@Model.RoleId" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label asp-for="RoleName" class="col-sm-3 col-form-label">Role Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="RoleName" value="@Model.RoleName" class="form-control" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

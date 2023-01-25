@@ -1,0 +1,110 @@
+﻿@model XboxdataListViewModel
+
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = locOptions.Value.SupportedUICultures
+                        .Select(x => new SelectListItem { Value = x.Name, Text = localizer.GetString(x.Name) })
+                        .ToList();
+}
+
+@section Css
+{
+    <title>Buy Xbox Game Pass</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+}
+
+<div class="xbox-calc-section">
+    <div class="xcc-box-left">
+        <div class="xcc-calc-content" id="xbox-buy">
+            @foreach (var q in Model.Curs)
+            {
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    @if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                    {
+                        <input id="currency-xbox-start" type="hidden" data-currency_name="@q.CurrencyName" data-curcalc="*" data-xboxday="@Model.day" data-xboxmonth="@Model.month" data-xboxyear="@Model.year" data-currency="@q.CurrencyStringConst" data-day_price="@Model.Xboxdata.SPrice">
+                        break;
+                    }
+                }
+                else
+                {
+                    @if (q.Id == Model.Cur)
+                    {
+                        <input id="currency-xbox-start" type="hidden" data-currency_name="@q.CurrencyName" data-curcalc="*" data-xboxday="@Model.day" data-xboxmonth="@Model.month" data-xboxyear="@Model.year" data-currency="@q.CurrencyStringConst" data-day_price="@Model.Xboxdata.SPrice">
+                        break;
+                    }
+                }
+            }
+            <h4 class="xcc-title">@localizer["xboxgamepasssubscription"] : </h4>
+            <div class="xcc-down">
+                <div class="xcc-down-item">
+                    <label for="">@localizer["totalmonths"]</label>
+                    <p><span id="xcc-month">99</span> @localizer["months"]</p>
+
+                </div>
+                <div class="xcc-down-item">
+                    <label for="">@localizer["totaldaysmonths"]</label>
+                    <p><span id="xcc-day">99</span> @localizer["days"]</p>
+                </div>
+                <div class="xcc-down-item">
+                    <label for="">@localizer["totalprice"]</label>
+                    <p id="xcc-price">99 USD</p>
+                </div>
+            </div>
+            <div class="xcc-load">
+                <div class="xcc-editor">
+                    <button id="xcc-minus" onclick="xcc_change(1)"><i class="las la-minus"></i></button>
+                    <p id="xcc-number">99</p>
+                    <button id="xcc-plus" onclick="xcc_change(2)"><i class="las la-plus"></i></button>
+                </div>
+                <div class="xcc-buy-btn-content">
+                    <button class="xcc-buy-btn" onclick="xcc_sub_accept()">@localizer["subscribe"]</button>
+                    <div class="accept-content xcc-disable">
+                        <form asp-controller="Account" asp-action="XboxPurchased" method="post">
+                            <input id="sub_accept" name="sub_accept" type="hidden" value="1">
+                            <button class="acceptx">@localizer["subscribenow"]</button>
+                        </form>
+                        <button class="cancelx" onclick="xcc_sub_cancel()">@localizer["cancel"]</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="xcc-box-right">
+        <div class="xcc-info">
+            <p>
+                @localizer["text1"]
+                @foreach (var q in Model.Curs)
+                {
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        @if (q.LanguageTag == requestCulture.RequestCulture.UICulture.Name)
+                        {
+                            <span class="suc">@(Math.Round(Model.Xboxdata.Price * q.CurrencyConst, 2)) @q.CurrencyName</span>
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        @if (q.Id == Model.Cur)
+                        {
+                            <span class="suc">@(Math.Round(Model.Xboxdata.Price * q.CurrencyConst, 2)) @q.CurrencyName</span>
+                            break;
+                        }
+                    }
+                } @localizer["text2"]
+            </p>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.migrate.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+}

@@ -1,0 +1,58 @@
+﻿@model PlatformListViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Platform Table</h4>
+                <p class="card-description">
+                    <a asp-controller="Admin" asp-action="PlatformCreate" class="btn btn-outline-primary btn-fw">Create</a>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:60px;"> ID </th>
+                                <th> Platform </th>
+                                <th> IsApproved </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Plats.Count() > 0)
+                            {
+                                @foreach (var ac in Model.Plats)
+                                {
+                                    <tr>
+                                        <td>@ac.Id</td>
+                                        <td>@ac.PlatformName</td>
+                                        <td>@ac.IsApproved</td>
+                                        <td>
+                                            <a href="/adminpanel/platformedit/@ac.Id" class="btn btn-outline-info btn-fw">Edit</a>
+                                            <form asp-controller="Admin" asp-action="DeletePlat" method="post" style="display:inline;">
+                                                <input type="hidden" name="Id" value="@ac.Id" />
+                                                <button type="submit" class="btn btn-outline-danger btn-fw">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-fw">Nothing is here</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
